@@ -79,6 +79,7 @@ func DeptaExtract(root *DTree, k int, threshold float64) []*DataRegion {
 		result = append(result, region)
 	}
 	return result
+
 }
 
 func Extract(data []byte) [][][]string {

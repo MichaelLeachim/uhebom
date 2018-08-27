@@ -43,6 +43,15 @@ func (d *DataRegion) iter(k int) [][]*DTree {
 
 type Record []*DTree
 
+func (r *Record) ConvertToBase() []*DTree {
+	return *r
+	// result := []*DTree{}
+	// for _, v := range *r {
+	// 	result = append(result, v)
+	// }
+	// return result
+}
+
 func (r *Record) id() string {
 	var buffer bytes.Buffer
 

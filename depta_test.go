@@ -8,61 +8,37 @@
 package depta
 
 import (
-	// "github.com/stretchr/testify/assert"
 	"bytes"
 	log "github.com/sirupsen/logrus"
+	"github.com/stretchr/testify/assert"
 	"io/ioutil"
 	"os"
-	// "strings"
 	"testing"
 )
 
-func TestNodeCopying(t *testing.T) {
-	// data, _ := ioutil.ReadFile("test/1.html")
-	// items := Extract(data)
-	// table4 := items[4]
-	// solists1 := strings.TrimSpace(table4[0][22])
-	// price1 := strings.TrimSpace(table4[0][16])
-	// solists2 := strings.TrimSpace(table4[1][22])
-	// price2 := strings.TrimSpace(table4[1][16])
-	// assert.Equal(t, solists1, "Солисты московской государственной филармонии")
-	// assert.Equal(t, price1, "1500")
+func TestNodeCopyingInvestigation(t *testing.T) {
+	data, _ := ioutil.ReadFile("test/1.html")
+	dtree := ReadHtml(ParseHTML(bytes.NewReader(data)))
+	regions := DeptaExtract(dtree, 5, 0.75)
 
-	// // Investigation...
-	// // make_id is allright
-	// for i := 0; i <= 1000; i++ {
-	// 	assert.NotEqual(t, string(make_id()), string(make_id()))
-	// }
-	// assert.NotEqual(t, solists1, solists2)
-	// assert.NotEqual(t, price1, price2)
+	first_record := regions[2].Items[0].ConvertToBase()
+	second_record := regions[2].Items[1].ConvertToBase()
+	assert.Equal(t, len(first_record), 13)
+	assert.Equal(t, len(second_record), 13)
 
-	// Parsing is OK. We must find something that copies data
+	assert.NotEqual(t, first_record[12].Data, second_record[12].Data)
 
 }
 
-func TestNodeCopyingInvestigation(t *testing.T) {
+func TestDeeperNodeCopyingInvestigation(t *testing.T) {
 	data, _ := ioutil.ReadFile("test/1.html")
-	threshold := 0.75 // 0.75
-	k := 5
-	r := bytes.NewReader(data)
-	dtree := ReadHtml(ParseHTML(r))
+	dtree := ReadHtml(ParseHTML(bytes.NewReader(data)))
 	region_finder := MiningDataRegion{}
-	region_finder.init(dtree, k, threshold)
+	region_finder.init(dtree, 5, 0.75)
 	regions := region_finder.find_regions(dtree)
-
-	record_finder := MiningDataRecord{}
-	record_finder.init(threshold)
-
-	field_finder := MiningDataField{}
-	field_finder.init()
-
-	result := make([]*DataRegion, 0)
-	for _, region := range regions {
-		records := record_finder.find_records(region)
-		items, _ := field_finder.align_records(records)
-		region.Items = items
-		result = append(result, region)
-	}
+	assert.Equal(t, len(regions), 28)
+	assert.Equal(t, regions[0], "sd")
+	// assert.Equal(t, len(regions[0].Items[0].ConvertToBase()), "blab")
 }
 
 func TestExamlesParsing(t *testing.T) {
