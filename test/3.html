@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Everybook blog posts">
+    <meta name="author" content="Everybook.ru">
+    <title>Everybook.ru. Книжный интернет магазин</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="/css/blog-post.css" rel="stylesheet">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <!-- Bootstrap Core CSS -->
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300&subset=latin,cyrillic" rel='stylesheet' type='text/css'>
+    <!-- Custom CSS -->
+    <link href="/css/shop-homepage.css" rel="stylesheet">
+    <link href="/src/main.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+    
+    <!-- jQuery -->
+    <script src="/js/jquery.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="/js/bootstrap.min.js"></script>
+    <script src="/js/sisyphus.min.js"></script>
+    <script src="/js/URI.min.js"></script>
+    <script src="/js/jquery.paginate.min.js"></script>
+    <script src="/js/ractive-legacy.min.js"></script>
+    <script src="/src/main.js"></script>
+    
+</head>
+
+
+  
+<nav class="navbar navigator">
+  <div class="container">
+    <a href="http://www.ebay.com/usr/everybook.ru">
+      <div style="background:url('/300x300/decor/7.jpg');width:100%;height:200px;margin-top:10px;">
+      </div>
+    </a>
+    
+    <div class="head-content">
+        <h1 id="brand"><a href="/">ЕВРОБУК</a></h1>
+    </div>
+    
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Переключить навигацию</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">ГЛАВНАЯ</a>
+    </div>
+    
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="/catalogue/">КАТАЛОГ</a></li>
+        <li class="active"><a href="/about/">КОНТАКТЫ</a></li>
+        <li class="active"><a href="/search/">РАСШИРЕННЫЙ ПОИСК</a></li>
+        
+        <li class="disabled" style="color:gray;">
+          <a href="#" >КОРЗИНА</a>
+        </li>
+        
+        
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <form class="navbar-form" role="search" style="padding-right: 0px;" method="GET" action="/search/">
+          <div class="input-group">
+            <input type="text" class="form-control" name="q" placeholder="Поиск">
+            <div class="input-group-btn">
+              <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+            </div>
+          </div>
+        </form>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+
+
+  <body class="container body">
+    
+<a href="http://www.ebay.com/usr/everybook.ru">
+  <div id="background-pad"></div>
+</a>
+
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-9">
+          <!-- pagination -->
+          <div class="row">
+            
+
+<script>
+  // handle pagination (context dependent)(thus will cause errors)
+  $(document).ready(function(){
+    $('.pagination').twbsPagination({
+        totalPages: 128,
+        visiblePages: 7,
+        startPage: 1,
+        initiateStartPageClick: false,
+        first: "Первая",
+        prev:  "Предыдущая",
+        next:  "Следующая",
+        last:  "Последняя",
+        onPageClick: function (event, page) {
+            event.preventDefault();
+            var URL  = URI(window.location.href);
+            var result = URL.removeQuery("cur-page").addQuery("cur-page",page).normalizeQuery().toString();
+            window.location.href = window.rememberPagePosition(result)
+        }
+    });
+  });
+</script>
+    
+<!-- <ul class="pagination pull-right fussy_font"> -->
+  
+<!--   <li style="list-style: none"> -->
+<!--     Всего страниц: <b>128</b> -->
+<!--   </li> -->
+<!--   <li></li> -->
+  
+  
+<!--   <li style="list-style: none"> -->
+<!--      -->
+<!--        -->
+<!--         <li> -->
+<!--           <a href="#" link-type="replace" what="cur-page" with-what="0">Предыдущая</a> -->
+<!--        </li> -->
+<!--        -->
+<!--    -->
+<!--        -->
+<!--         <li> -->
+<!--           <a href="#" link-type="replace" what="cur-page" with-what="2">Следуюшая</a> -->
+<!--        </li> -->
+<!--        -->
+<!--    -->
+<!--   </li> -->
+<!-- </ul> -->
+
+            <ul class="pagination pagination-sm pull-right fussy_font"></ul>
+          </div>
+          <!-- cards -->
+          <div class="row">
+            
+            <div class="col-sm-4 col-lg-4 col-md-4">
+              <div class="thumbnail">
+  
+  <a class="to-basket product_link augment"
+     method="POST"
+     after="RELOAD"
+     href="/state/add-to-cart/2/">
+    <div data-content="В корзину" class="image placeholder"
+         style="height:200px;background-image: url('/300x200/-1390324355.jpg')">
+    </div>
+  </a>
+  
+  <div class="caption">
+    <h4 class="pull-right"><i class="fa fa-rub"></i>&nbsp1500</h4><br/>
+    <h4 style="text-overflow: ellipsis;">
+      <a class="product_link" href="/items/2" style="word-wrap: break-word;white-space: normal">
+        Dictionnaire encyclopedique pour tous. Nouveau Petit Larousse en couleurs.
+      </a>
+    </h4>
+    Энциклопедия на французском языке. Содержит 70500 статей, 5150 иллюстраций, 245 карт.
+  </div>
+</div>
+
+            </div>
+            
+            <div class="col-sm-4 col-lg-4 col-md-4">
+              <div class="thumbnail">
+  
+  <a class="to-basket product_link augment"
+     method="POST"
+     after="RELOAD"
+     href="/state/add-to-cart/46/">
+    <div data-content="В корзину" class="image placeholder"
+         style="height:200px;background-image: url('/300x200/239902200.jpg')">
+    </div>
+  </a>
+  
+  <div class="caption">
+    <h4 class="pull-right"><i class="fa fa-rub"></i>&nbsp500</h4><br/>
+    <h4 style="text-overflow: ellipsis;">
+      <a class="product_link" href="/items/46" style="word-wrap: break-word;white-space: normal">
+        Империализм и развивающиеся страны
+      </a>
+    </h4>
+    В сборнике статей анализируется характер и особенности политики империалистических держав в Азии и Африке в конце 70-х- начале 80-х годов.
+  </div>
+</div>
+
+            </div>
+            
+            <div class="col-sm-4 col-lg-4 col-md-4">
+              <div class="thumbnail">
+  
+  <a class="to-basket product_link augment"
+     method="POST"
+     after="RELOAD"
+     href="/state/add-to-cart/1/">
+    <div data-content="В корзину" class="image placeholder"
+         style="height:200px;background-image: url('/300x200/-767518395.jpg')">
+    </div>
+  </a>
+  
+  <div class="caption">
+    <h4 class="pull-right"><i class="fa fa-rub"></i>&nbsp650</h4><br/>
+    <h4 style="text-overflow: ellipsis;">
+      <a class="product_link" href="/items/1" style="word-wrap: break-word;white-space: normal">
+        Библиотечка лекарственных растений (Комплект из 2-ух томов).
+      </a>
+    </h4>
+    Книги &quot;400 лекарственных растений&quot; и &quot;1260 рецептов народной медицины&quot;, объединенных в &quot;Библиотечку лекарственных растений&quot;, представляют собой многолетний труд военного медика В.М.Зимина. Автор-составитель предлагает читателям применение лекарственных растений в народной и научной медицине разных стран.
+  </div>
+</div>
+
+            </div>
+            
+            <div class="col-sm-4 col-lg-4 col-md-4">
+              <div class="thumbnail">
+  
+  <a class="to-basket product_link augment"
+     method="POST"
+     after="RELOAD"
+     href="/state/add-to-cart/3/">
+    <div data-content="В корзину" class="image placeholder"
+         style="height:200px;background-image: url('/300x200/-1336867432.jpg')">
+    </div>
+  </a>
+  
+  <div class="caption">
+    <h4 class="pull-right"><i class="fa fa-rub"></i>&nbsp700</h4><br/>
+    <h4 style="text-overflow: ellipsis;">
+      <a class="product_link" href="/items/3" style="word-wrap: break-word;white-space: normal">
+        Скульптура, рисунок. Каталог выставки.
+      </a>
+    </h4>
+    Каталог выставки. На титульном листе автограф Аникушина М.К.
+  </div>
+</div>
+
+            </div>
+            
+            <div class="col-sm-4 col-lg-4 col-md-4">
+              <div class="thumbnail">
+  
+  <a class="to-basket product_link augment"
+     method="POST"
+     after="RELOAD"
+     href="/state/add-to-cart/26/">
+    <div data-content="В корзину" class="image placeholder"
+         style="height:200px;background-image: url('/300x200/-1852515164.jpg')">
+    </div>
+  </a>
+  
+  <div class="caption">
+    <h4 class="pull-right"><i class="fa fa-rub"></i>&nbsp200</h4><br/>
+    <h4 style="text-overflow: ellipsis;">
+      <a class="product_link" href="/items/26" style="word-wrap: break-word;white-space: normal">
+        Молодые советские художники
+      </a>
+    </h4>
+    Альбом создан по материалам выставки произведений молодых художников, экспонировавшейся в Академии художеств СССР в 1979 году. Представлены репродукции произведений живописцев, скульпторов и графиков. Вступительная статья, в которой автор рассматривает и анализирует работы молодых художников, дает возможность читателю познакомиться с проблемами и достижениями искусства молодых советских художников. Альбом будет интересен широкому кругу любителей искусства. 
+  </div>
+</div>
+
+            </div>
+            
+            <div class="col-sm-4 col-lg-4 col-md-4">
+              <div class="thumbnail">
+  
+  <a class="to-basket product_link augment"
+     method="POST"
+     after="RELOAD"
+     href="/state/add-to-cart/52/">
+    <div data-content="В корзину" class="image placeholder"
+         style="height:200px;background-image: url('/300x200/683014090.jpg')">
+    </div>
+  </a>
+  
+  <div class="caption">
+    <h4 class="pull-right"><i class="fa fa-rub"></i>&nbsp2000</h4><br/>
+    <h4 style="text-overflow: ellipsis;">
+      <a class="product_link" href="/items/52" style="word-wrap: break-word;white-space: normal">
+        Инвентарь инкунабулов
+      </a>
+    </h4>
+    В четвертом выпуске описаны 150 изданий XV в., поступивших в отдел редких книг 
+  </div>
+</div>
+
+            </div>
+            
+            <div class="col-sm-4 col-lg-4 col-md-4">
+              <div class="thumbnail">
+  
+  <a class="to-basket product_link augment"
+     method="POST"
+     after="RELOAD"
+     href="/state/add-to-cart/1290/">
+    <div data-content="В корзину" class="image placeholder"
+         style="height:200px;background-image: url('/300x200/-2023939666.jpg')">
+    </div>
+  </a>
+  
+  <div class="caption">
+    <h4 class="pull-right"><i class="fa fa-rub"></i>&nbsp350</h4><br/>
+    <h4 style="text-overflow: ellipsis;">
+      <a class="product_link" href="/items/1290" style="word-wrap: break-word;white-space: normal">
+        Weimar
+      </a>
+    </h4>
+    
+  </div>
+</div>
+
+            </div>
+            
+            <div class="col-sm-4 col-lg-4 col-md-4">
+              <div class="thumbnail">
+  
+  <a class="to-basket product_link augment"
+     method="POST"
+     after="RELOAD"
+     href="/state/add-to-cart/1340/">
+    <div data-content="В корзину" class="image placeholder"
+         style="height:200px;background-image: url('/300x200/-793743434.jpg')">
+    </div>
+  </a>
+  
+  <div class="caption">
+    <h4 class="pull-right"><i class="fa fa-rub"></i>&nbsp1200</h4><br/>
+    <h4 style="text-overflow: ellipsis;">
+      <a class="product_link" href="/items/1340" style="word-wrap: break-word;white-space: normal">
+        Автоматика двигателей летательный аппаратов
+      </a>
+    </h4>
+    
+  </div>
+</div>
+
+            </div>
+            
+            <div class="col-sm-4 col-lg-4 col-md-4">
+              <div class="thumbnail">
+  
+  <a class="to-basket product_link augment"
+     method="POST"
+     after="RELOAD"
+     href="/state/add-to-cart/11/">
+    <div data-content="В корзину" class="image placeholder"
+         style="height:200px;background-image: url('/300x200/-143524389.jpg')">
+    </div>
+  </a>
+  
+  <div class="caption">
+    <h4 class="pull-right"><i class="fa fa-rub"></i>&nbsp800</h4><br/>
+    <h4 style="text-overflow: ellipsis;">
+      <a class="product_link" href="/items/11" style="word-wrap: break-word;white-space: normal">
+        Вибранi твори
+      </a>
+    </h4>
+    Собрание сочинений на украинском языке
+  </div>
+</div>
+
+            </div>
+            
+            <div class="col-sm-4 col-lg-4 col-md-4">
+              <div class="thumbnail">
+  
+  <a class="to-basket product_link augment"
+     method="POST"
+     after="RELOAD"
+     href="/state/add-to-cart/18/">
+    <div data-content="В корзину" class="image placeholder"
+         style="height:200px;background-image: url('/300x200/-158681553.jpg')">
+    </div>
+  </a>
+  
+  <div class="caption">
+    <h4 class="pull-right"><i class="fa fa-rub"></i>&nbsp200</h4><br/>
+    <h4 style="text-overflow: ellipsis;">
+      <a class="product_link" href="/items/18" style="word-wrap: break-word;white-space: normal">
+        Обвал. Послесловие
+      </a>
+    </h4>
+    С идеей марксизма, на фундаменте которой десятилетиями строилась жизнь советских людей, связаны трагедии и надежды, мифы и заблуждения миллионов. Прозрение и очищение от коммунистического наваждения, запечатленное в этой книге, ценно тем, что оно произошло в душе человека честного и искреннего, пережившего во всей полноте человеческих чувств и свою веру, и свое неверие. Прочитав эту книгу, объективный читатель поверит, что не расчет, не корысть, а элементарное нравственное чувство, совесть вызвали к жизни стремление коренным образом изменить ход российской истории.
+  </div>
+</div>
+
+            </div>
+            
+          </div>
+          <ul class="pagination pagination-sm pull-right fussy_font"></ul>
+        </div>
+        <!-- categories       -->
+        <div class="col-md-3">
+            <link href="/src/gastronom/search_book.css" rel="stylesheet">
+<div id="book-search-left">
+  <form method="GET" action="/search/">
+    <h2 class="accent-head" id="extincss_1">НАЙТИ КНИГУ<br id="extincss_2"></h2>
+    <div class="row input-row" id="extincss_3">
+      <input type="text" class="default-kit text-input gray valid" id="vidget-title" placeholder="Название" name="q"></div>
+    <!-- <div class="row input-row" id="extincss_5"> -->
+    <!--   <input type="text" class="default-kit text-input gray valid" id="vidget-iningr" placeholder="Автор" name="q"></div> -->
+    <div class="row input-row irl" id="extincss_7"></div>
+    
+    <div class="row input-row" id="extincss_8">
+      <input type="submit" class="default-kit button full black" value="НАЙТИ" id="vidget-search" type="submit">
+    </div>
+    <a href="/search/">Расширенный поиск</a>    
+
+  </form>
+</div>
+
+
+<div class="list-group">
+  
+  <a href="/catalogue/tanpaper"  class="list-group-item  with-position">Антикварные: Афиши, плакаты, гравюры, фотографии <b>(16)</b></a>
+  
+  <a href="/catalogue/tanper"  class="list-group-item  with-position">Антикварные: Газеты, журналы <b>(109)</b></a>
+  
+  <a href="/catalogue/tandet"  class="list-group-item  with-position">Антикварные: Детские книги и журналы <b>(18)</b></a>
+  
+  <a href="/catalogue/tandr"  class="list-group-item  with-position">Антикварные: Другие <b>(23)</b></a>
+  
+  <a href="/catalogue/tangeo"  class="list-group-item  with-position">Антикварные: Естествознание, Медицина <b>(43)</b></a>
+  
+  <a href="/catalogue/tanist"  class="list-group-item  with-position">Антикварные: История, Философия, Религия <b>(78)</b></a>
+  
+  <a href="/catalogue/tanlit"  class="list-group-item  with-position">Антикварные: Литературоведение, Книговедение <b>(11)</b></a>
+  
+  <a href="/catalogue/tanpoem"  class="list-group-item  with-position">Антикварные: Худ. лит-ра: Поэзия <b>(28)</b></a>
+  
+  <a href="/catalogue/tanproz"  class="list-group-item  with-position">Антикварные: Худ. лит-ра: Проза <b>(36)</b></a>
+  
+  <a href="/catalogue/tetnos"  class="list-group-item  with-position">Антропология, этнография, мифология, фольклор <b>(9)</b></a>
+  
+  <a href="/catalogue/tarhitek"  class="list-group-item  with-position">Архитектура. <b>(10)</b></a>
+  
+  <a href="/catalogue/tmemvoina"  class="list-group-item  with-position">Биографии, мемуары: Война, политика, дипломатия <b>(20)</b></a>
+  
+  <a href="/catalogue/tbiograf"  class="list-group-item  with-position">Биографии, мемуары: Другое <b>(20)</b></a>
+  
+  <a href="/catalogue/tmemart"  class="list-group-item  with-position">Биографии, мемуары: Искусство (театр, музыка, кино и др.) <b>(12)</b></a>
+  
+  <a href="/catalogue/tmemlit"  class="list-group-item  with-position">Биографии, мемуары: Литература <b>(22)</b></a>
+  
+  <a href="/catalogue/tvoina"  class="list-group-item  with-position">Военная история <b>(11)</b></a>
+  
+  <a href="/catalogue/tvdelo"  class="list-group-item  with-position">Военное дело: теория и практика, вооружение и оснащение, обеспечение и др. <b>(12)</b></a>
+  
+  <a href="/catalogue/tper"  class="list-group-item  with-position">Газеты, журналы <b>(72)</b></a>
+  
+  <a href="/catalogue/tdetuch"  class="list-group-item  with-position">Детская лит-ра: Познавательная, обучающая, развивающая <b>(11)</b></a>
+  
+  <a href="/catalogue/tdetskaz"  class="list-group-item  with-position">Детская лит-ра: Сказки, стихи и басни <b>(19)</b></a>
+  
+  <a href="/catalogue/tzakon"  class="list-group-item  with-position">Законодательство, право <b>(10)</b></a>
+  
+  <a href="/catalogue/trudno"  class="list-group-item  with-position">Затрудняюсь выбрать <b>(20)</b></a>
+  
+  <a href="/catalogue/tjivo"  class="list-group-item  with-position">Искусствo: Живопись, графика, скульптура <b>(44)</b></a>
+  
+  <a href="/catalogue/tkino"  class="list-group-item  with-position">Искусствo: Кино, ТВ, театр <b>(10)</b></a>
+  
+  <a href="/catalogue/tmuzei"  class="list-group-item  with-position">Искусствo: Музеи, выставки, каталоги <b>(14)</b></a>
+  
+  <a href="/catalogue/tnotes"  class="list-group-item  with-position">Искусствo: Музыка, ноты, опера, балет, танцы <b>(11)</b></a>
+  
+  <a href="/catalogue/tiskus"  class="list-group-item  with-position">Искусствo: Теория и история искусства, эстетика <b>(15)</b></a>
+  
+  <a href="/catalogue/tdris"  class="list-group-item  with-position">Искусство: Декоративно-прикладное. Другие виды искусства <b>(13)</b></a>
+  
+  <a href="/catalogue/tistor"  class="list-group-item  with-position">История всемирная: Общие вопросы. Книги, охватывающие несколько периодов <b>(10)</b></a>
+  
+  <a href="/catalogue/tiross2"  class="list-group-item  with-position">История России (1700-1917 гг.) <b>(17)</b></a>
+  
+  <a href="/catalogue/tiross3"  class="list-group-item  with-position">История СССР и России (после 1917 г.) <b>(33)</b></a>
+  
+  <a href="/catalogue/tmaps"  class="list-group-item  with-position">Карты и атласы. Топография, геодезия <b>(60)</b></a>
+  
+  <a href="/catalogue/tlingbook"  class="list-group-item  with-position">Книги на иностранных языках <b>(96)</b></a>
+  
+  <a href="/catalogue/tlit"  class="list-group-item  with-position">Литературоведение <b>(101)</b></a>
+  
+  <a href="/catalogue/tmarx"  class="list-group-item  with-position">Марксистско-ленинская литература <b>(154)</b></a>
+  
+  <a href="/catalogue/tamed"  class="list-group-item  with-position">Медицина: Анатомия и физиология <b>(10)</b></a>
+  
+  <a href="/catalogue/tmed"  class="list-group-item  with-position">Медицина: Другое <b>(27)</b></a>
+  
+  <a href="/catalogue/tdokum"  class="list-group-item  with-position">Оригиналы автографов, документов, рукописей <b>(12)</b></a>
+  
+  <a href="/catalogue/tpolit"  class="list-group-item  with-position">Политология, геополитика, дипломатия <b>(69)</b></a>
+  
+  <a href="/catalogue/tposobsam"  class="list-group-item  with-position">Пособия для абитуриентов и самообразования <b>(14)</b></a>
+  
+  <a href="/catalogue/tposobu"  class="list-group-item  with-position">Пособия для учителей <b>(12)</b></a>
+  
+  <a href="/catalogue/tpoem"  class="list-group-item  with-position">Поэзия XX-XXI вв. <b>(75)</b></a>
+  
+  <a href="/catalogue/toproz"  class="list-group-item  with-position">Проза отечественная XX-XXI вв. <b>(56)</b></a>
+  
+  <a href="/catalogue/tprom"  class="list-group-item  with-position">Промышленность, производство <b>(14)</b></a>
+  
+  <a href="/catalogue/tislam"  class="list-group-item  with-position">Религия: Ислам <b>(15)</b></a>
+  
+  <a href="/catalogue/thrist"  class="list-group-item  with-position">Религия: Христианство <b>(19)</b></a>
+  
+  <a href="/catalogue/tslovar"  class="list-group-item  with-position">Словари <b>(21)</b></a>
+  
+  <a href="/catalogue/tsocio"  class="list-group-item  with-position">Социология, культурология, история быта <b>(23)</b></a>
+  
+  <a href="/catalogue/tlinguch"  class="list-group-item  with-position">Учебники и самоучители иностранных языков <b>(10)</b></a>
+  
+  <a href="/catalogue/tfiz"  class="list-group-item  with-position">Физика <b>(12)</b></a>
+  
+  <a href="/catalogue/tphil"  class="list-group-item  with-position">Философия: Другое <b>(15)</b></a>
+  
+  <a href="/catalogue/tphonov"  class="list-group-item  with-position">Философия: Новейшее время. Отечественная. (XX-XXI вв.) <b>(11)</b></a>
+  
+  <a href="/catalogue/tfoto"  class="list-group-item  with-position">Фотодело, Фотоальбомы <b>(10)</b></a>
+  
+  <a href="/catalogue/tekonom"  class="list-group-item  with-position">Экономика, политэкономия <b>(65)</b></a>
+  
+  <a href="/catalogue/tradio"  class="list-group-item  with-position">Электроника, электротехника, радио и связь <b>(15)</b></a>
+  
+</div>
+
+
+        </div>
+      </div>
+    </div>
+    
+  </body>
+<div class="container">
+<!-- Footer -->
+  <footer>
+    <div class="row">
+      <div class="col-lg-12">
+        <p>&copy; EveryBook.ru 2015</p>
+      </div>
+    </div>
+  </footer>
+</div>
+
+
+
+
+
+
+
+
+
+</html>

@@ -1,0 +1,2108 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Everybook blog posts">
+    <meta name="author" content="Everybook.ru">
+    <title>Everybook.ru. Книжный интернет магазин</title>
+</head>
+<!-- Bootstrap Core CSS -->
+<link href="/css/bootstrap.min.css" rel="stylesheet">
+<!-- Custom CSS -->
+<!-- <link href="/css/blog-post.css" rel="stylesheet"> -->
+<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+<!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+    <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+<![endif]-->
+<!-- Custom CSS -->
+<link href="/css/shop-homepage.css" rel="stylesheet">
+<link href="/src/main.css" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300&subset=latin,cyrillic" rel='stylesheet' type='text/css'>
+<!-- jQuery -->
+<script src="/js/jquery.js"></script>
+<!-- Bootstrap Core JavaScript -->
+<script src="/js/bootstrap.min.js"></script>
+<!-- <script src="/js/sisyphus.min.js"></script> -->
+<link rel="stylesheet" href="/css/font-awesome/css/font-awesome.min.css">
+<script src="/js/URI.min.js"></script>
+<script src="/js/jquery.paginate.min.js"></script>
+<script src="/js/ractive-legacy.min.js"></script>
+<script src="/src/main.js"></script>
+
+  <nav class="navbar navigator">
+  <div class="container">
+    <a href="http://www.ebay.com/usr/everybook.ru">
+      <div style="background:url('/300x300/decor/7.jpg');width:100%;height:200px;margin-top:10px;">
+      </div>
+    </a>
+    
+    <div class="head-content">
+        <h1 id="brand"><a href="/">ЕВРОБУК</a></h1>
+    </div>
+    
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+        <span class="sr-only">Переключить навигацию</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">ГЛАВНАЯ</a>
+    </div>
+    
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="/catalogue/">КАТАЛОГ</a></li>
+        <li class="active"><a href="/about/">КОНТАКТЫ</a></li>
+        <li class="active"><a href="/search/">РАСШИРЕННЫЙ ПОИСК</a></li>
+                <li class="disabled" style="color:gray;">
+          <a href="#" >КОРЗИНА</a>
+        </li>
+        
+        
+        
+        
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <form class="navbar-form" role="search" style="padding-right: 0px;" method="GET" action="/search/">
+          <div class="input-group">
+            <input type="text" class="form-control" name="q" placeholder="Поиск">
+            <div class="input-group-btn">
+              <button class="btn btn-default" type="submit"><i class="glyphicon glyphicon-search"></i></button>
+            </div>
+          </div>
+        </form>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  <body class="container body">
+    
+<a href="http://www.ebay.com/usr/everybook.ru">
+  <div id="background-pad"></div>
+</a>
+
+
+    <div class="container">
+      <div class="row">
+        <div class="col-md-9">
+          <!-- pagination -->
+          <div class="row">
+            
+<script src="/js/jquery.js"></script>
+<script>
+  // handle pagination (context dependent)(thus will cause errors)
+  $(document).ready(function(){
+    $('.pagination').twbsPagination({
+        totalPages: 45,
+        visiblePages: 10,
+        startPage: 1,
+        initiateStartPageClick: false,
+        first: "Первая",
+        prev:  "Предыдущая",
+        next:  "Следующая",
+        last:  "Последняя",
+        onPageClick: function (event, page) {
+            event.preventDefault();
+            var URL  = URI(window.location.href);
+            var result = URL.removeQuery("cur-page").addQuery("cur-page",page).normalizeQuery().toString();
+            window.location.href = window.rememberPagePosition(result)
+        }
+    });
+  });
+</script>
+    
+<!-- <ul class="pagination pull-right fussy_font"> -->
+  
+<!--   <li style="list-style: none"> -->
+<!--     Всего страниц: <b></b> -->
+<!--   </li> -->
+<!--   <li></li> -->
+  
+  
+<!--   <li style="list-style: none"> -->
+<!--     {% for p in nodes.paginator.pages %} -->
+<!--       {% if p.active? %} -->
+<!--         <li class="active"> -->
+<!--           <a href="#" link-type="replace" what="cur-page" with-what=""></a> -->
+<!--         </li> -->
+<!--         {% else %} -->
+<!--         <li> -->
+<!--           <a href="#" link-type="replace" what="cur-page" with-what=""></a> -->
+<!--        </li> -->
+<!--       {% endif %} -->
+<!--   {% endfor %} -->
+<!--   </li> -->
+<!-- </ul> -->
+
+            <ul class="pagination pagination-sm pull-right fussy_font"></ul>
+          </div>
+          <!-- cards -->
+          <div class="row">
+                        <div class="col-sm-4 col-lg-4 col-md-4">
+              <div class="thumbnail">
+  
+    <!-- /state/add-to-cart// -->
+  <a class="to-basket product_link"
+     method="POST"
+     after="RELOAD"
+     href="/items/19613">
+    
+    <div data-content="В корзину" class="image placeholder"
+         style="background-position:center !important;
+                background: no-repeat;
+                height:200px;
+                background-image: url('/200x300/1485309564.jpg')">
+    </div>
+  </a>
+  
+  <div class="caption">
+    <h4 class="pull-right"><i class="fa fa-rub"></i>&nbsp1500</h4><br/>
+    <h4 style="text-overflow: ellipsis;">
+      <a class="product_link" href="/items/19613" style="word-wrap: break-word;white-space: normal">
+        Dictionnaire encyclopedique pour tous. Nouveau Petit Larousse en couleurs.
+      </a>
+    </h4>
+    Энциклопедия на французском языке. Содержит 70500 статей, 5150 иллюстраций, 245 карт.
+  </div>
+</div>
+
+            </div>
+                        <div class="col-sm-4 col-lg-4 col-md-4">
+              <div class="thumbnail">
+  
+    <!-- /state/add-to-cart// -->
+  <a class="to-basket product_link"
+     method="POST"
+     after="RELOAD"
+     href="/items/19614">
+    
+    <div data-content="В корзину" class="image placeholder"
+         style="background-position:center !important;
+                background: no-repeat;
+                height:200px;
+                background-image: url('/200x300/1685796015.jpg')">
+    </div>
+  </a>
+  
+  <div class="caption">
+    <h4 class="pull-right"><i class="fa fa-rub"></i>&nbsp700</h4><br/>
+    <h4 style="text-overflow: ellipsis;">
+      <a class="product_link" href="/items/19614" style="word-wrap: break-word;white-space: normal">
+        Скульптура, рисунок. Каталог выставки.
+      </a>
+    </h4>
+    Каталог выставки. На титульном листе автограф Аникушина М.К.
+  </div>
+</div>
+
+            </div>
+                        <div class="col-sm-4 col-lg-4 col-md-4">
+              <div class="thumbnail">
+  
+    <!-- /state/add-to-cart// -->
+  <a class="to-basket product_link"
+     method="POST"
+     after="RELOAD"
+     href="/items/19615">
+    
+    <div data-content="В корзину" class="image placeholder"
+         style="background-position:center !important;
+                background: no-repeat;
+                height:200px;
+                background-image: url('/200x300/3548927245.jpg')">
+    </div>
+  </a>
+  
+  <div class="caption">
+    <h4 class="pull-right"><i class="fa fa-rub"></i>&nbsp350</h4><br/>
+    <h4 style="text-overflow: ellipsis;">
+      <a class="product_link" href="/items/19615" style="word-wrap: break-word;white-space: normal">
+        Le collier de la reine (в 3-х томах).
+      </a>
+    </h4>
+    Ожерелье королевы (фр. Le Collier de la Reine) — вторая часть тетралогии Александра Дюма-отца, объединённой похождениями известного мага, предсказателя судеб и вечного человека Джузеппе Бальзамо (Калиостро). Издание полностью на французском языке.
+  </div>
+</div>
+
+            </div>
+                        <div class="col-sm-4 col-lg-4 col-md-4">
+              <div class="thumbnail">
+  
+    <!-- /state/add-to-cart// -->
+  <a class="to-basket product_link"
+     method="POST"
+     after="RELOAD"
+     href="/items/19616">
+    
+    <div data-content="В корзину" class="image placeholder"
+         style="background-position:center !important;
+                background: no-repeat;
+                height:200px;
+                background-image: url('/200x300/1032481813.jpg')">
+    </div>
+  </a>
+  
+  <div class="caption">
+    <h4 class="pull-right"><i class="fa fa-rub"></i>&nbsp300</h4><br/>
+    <h4 style="text-overflow: ellipsis;">
+      <a class="product_link" href="/items/19616" style="word-wrap: break-word;white-space: normal">
+        География городов с основами градостроительства.
+      </a>
+    </h4>
+    Курс лекций для студентов-заочников по специальности Экономическая география
+  </div>
+</div>
+
+            </div>
+                        <div class="col-sm-4 col-lg-4 col-md-4">
+              <div class="thumbnail">
+  
+    <!-- /state/add-to-cart// -->
+  <a class="to-basket product_link"
+     method="POST"
+     after="RELOAD"
+     href="/items/19617">
+    
+    <div data-content="В корзину" class="image placeholder"
+         style="background-position:center !important;
+                background: no-repeat;
+                height:200px;
+                background-image: url('/200x300/1237164660.jpg')">
+    </div>
+  </a>
+  
+  <div class="caption">
+    <h4 class="pull-right"><i class="fa fa-rub"></i>&nbsp800</h4><br/>
+    <h4 style="text-overflow: ellipsis;">
+      <a class="product_link" href="/items/19617" style="word-wrap: break-word;white-space: normal">
+        Собрание сочинений в 6-ти томах.
+      </a>
+    </h4>
+    Том 1 - Рассказы 1906-1910 Том 2 - Рассказы 1910-1914 Том 3 - Алые паруса, Феерия; Блистающий мир, роман; Рассказы 1914-1916 Том 4 - Золотая цепь, роман; Рассказы 1916 - 1923 Том 5 - Бегущая по волнам, роман; Рассказы 1923 - 1929 Том 6 - Дорога никуда, роман; Автобиографическая повесть;Рассказы 1929 - 1930. Все тома в картонных футлярах.
+  </div>
+</div>
+
+            </div>
+                        <div class="col-sm-4 col-lg-4 col-md-4">
+              <div class="thumbnail">
+  
+    <!-- /state/add-to-cart// -->
+  <a class="to-basket product_link"
+     method="POST"
+     after="RELOAD"
+     href="/items/19618">
+    
+    <div data-content="В корзину" class="image placeholder"
+         style="background-position:center !important;
+                background: no-repeat;
+                height:200px;
+                background-image: url('/200x300/1662496093.jpg')">
+    </div>
+  </a>
+  
+  <div class="caption">
+    <h4 class="pull-right"><i class="fa fa-rub"></i>&nbsp500</h4><br/>
+    <h4 style="text-overflow: ellipsis;">
+      <a class="product_link" href="/items/19618" style="word-wrap: break-word;white-space: normal">
+        Современное развитие этнических групп средней азии и казахстана (комплект из 2-ух книг)
+      </a>
+    </h4>
+    Научная работа по этнографии Средней Азии и Кзахстана.
+  </div>
+</div>
+
+            </div>
+                        <div class="col-sm-4 col-lg-4 col-md-4">
+              <div class="thumbnail">
+  
+    <!-- /state/add-to-cart// -->
+  <a class="to-basket product_link"
+     method="POST"
+     after="RELOAD"
+     href="/items/19619">
+    
+    <div data-content="В корзину" class="image placeholder"
+         style="background-position:center !important;
+                background: no-repeat;
+                height:200px;
+                background-image: url('/200x300/1007118366.jpg')">
+    </div>
+  </a>
+  
+  <div class="caption">
+    <h4 class="pull-right"><i class="fa fa-rub"></i>&nbsp600</h4><br/>
+    <h4 style="text-overflow: ellipsis;">
+      <a class="product_link" href="/items/19619" style="word-wrap: break-word;white-space: normal">
+        Так это было. Национальные репрессии в СССР 1919-1952гг. (В 3-ех томах)
+      </a>
+    </h4>
+    В этой работе впервые с помощью различных источников воссоздается целостная картина национальной репрессивной политики в СССР.
+  </div>
+</div>
+
+            </div>
+                        <div class="col-sm-4 col-lg-4 col-md-4">
+              <div class="thumbnail">
+  
+    <!-- /state/add-to-cart// -->
+  <a class="to-basket product_link"
+     method="POST"
+     after="RELOAD"
+     href="/items/19620">
+    
+    <div data-content="В корзину" class="image placeholder"
+         style="background-position:center !important;
+                background: no-repeat;
+                height:200px;
+                background-image: url('/200x300/3073483632.jpg')">
+    </div>
+  </a>
+  
+  <div class="caption">
+    <h4 class="pull-right"><i class="fa fa-rub"></i>&nbsp500</h4><br/>
+    <h4 style="text-overflow: ellipsis;">
+      <a class="product_link" href="/items/19620" style="word-wrap: break-word;white-space: normal">
+        Уроки Леонида Леонова.
+      </a>
+    </h4>
+    В книге рассматриваются эстетические и этические проблемы в произведениях выдающегося писателя. Критик на широком материале исследует эти вопросы, раскрывая глубокий патриотизм, непримиримость к буржуазной идеологии, самобытность и партийность творчества писателя. Исследование опирается на подробный анализ основных произведений Л. Леонова. На титульном листе автограф автора.
+  </div>
+</div>
+
+            </div>
+                        <div class="col-sm-4 col-lg-4 col-md-4">
+              <div class="thumbnail">
+  
+    <!-- /state/add-to-cart// -->
+  <a class="to-basket product_link"
+     method="POST"
+     after="RELOAD"
+     href="/items/19622">
+    
+    <div data-content="В корзину" class="image placeholder"
+         style="background-position:center !important;
+                background: no-repeat;
+                height:200px;
+                background-image: url('/200x300/3422346951.jpg')">
+    </div>
+  </a>
+  
+  <div class="caption">
+    <h4 class="pull-right"><i class="fa fa-rub"></i>&nbsp400</h4><br/>
+    <h4 style="text-overflow: ellipsis;">
+      <a class="product_link" href="/items/19622" style="word-wrap: break-word;white-space: normal">
+        Essential english for foreign students
+      </a>
+    </h4>
+    Предлагаемый Вашему вниманию учебник выдержал множество изданий, успех учебника объясняется тем, что автор избавляет учащегося от зубрежки грамматических форм, ориентирует на усвоение живого, разговорного языка в прикладной форме. Достоинство учебника и в том, что, изучая язык, Вы одновременно знакомитесь с бытом и обычаями англоговорящих стран.
+  </div>
+</div>
+
+            </div>
+                        <div class="col-sm-4 col-lg-4 col-md-4">
+              <div class="thumbnail">
+  
+    <!-- /state/add-to-cart// -->
+  <a class="to-basket product_link"
+     method="POST"
+     after="RELOAD"
+     href="/items/19623">
+    
+    <div data-content="В корзину" class="image placeholder"
+         style="background-position:center !important;
+                background: no-repeat;
+                height:200px;
+                background-image: url('/200x300/1008629497.jpg')">
+    </div>
+  </a>
+  
+  <div class="caption">
+    <h4 class="pull-right"><i class="fa fa-rub"></i>&nbsp3500</h4><br/>
+    <h4 style="text-overflow: ellipsis;">
+      <a class="product_link" href="/items/19623" style="word-wrap: break-word;white-space: normal">
+        Ленинским курсом
+      </a>
+    </h4>
+    Политическая литература. Речи, приветствия, статьи, воспоминания, издания в суперобложке
+  </div>
+</div>
+
+            </div>
+                        <div class="col-sm-4 col-lg-4 col-md-4">
+              <div class="thumbnail">
+  
+    <!-- /state/add-to-cart// -->
+  <a class="to-basket product_link"
+     method="POST"
+     after="RELOAD"
+     href="/items/19624">
+    
+    <div data-content="В корзину" class="image placeholder"
+         style="background-position:center !important;
+                background: no-repeat;
+                height:200px;
+                background-image: url('/200x300/2040744958.jpg')">
+    </div>
+  </a>
+  
+  <div class="caption">
+    <h4 class="pull-right"><i class="fa fa-rub"></i>&nbsp1000</h4><br/>
+    <h4 style="text-overflow: ellipsis;">
+      <a class="product_link" href="/items/19624" style="word-wrap: break-word;white-space: normal">
+        Борис Пастернак-материалы для биографии
+      </a>
+    </h4>
+    Эта книга - биография Б. Пастернака , написанная его сыном Е.Пастернаком на основе богатейшего архивного материала - документов, писем, воспоминаний современников. Она не только раскрывает обстоятельства жизни поэта, но и показывает творческую историю создания его произведений . Книга подписана автором.
+  </div>
+</div>
+
+            </div>
+                        <div class="col-sm-4 col-lg-4 col-md-4">
+              <div class="thumbnail">
+  
+    <!-- /state/add-to-cart// -->
+  <a class="to-basket product_link"
+     method="POST"
+     after="RELOAD"
+     href="/items/19625">
+    
+    <div data-content="В корзину" class="image placeholder"
+         style="background-position:center !important;
+                background: no-repeat;
+                height:200px;
+                background-image: url('/200x300/229023092.jpg')">
+    </div>
+  </a>
+  
+  <div class="caption">
+    <h4 class="pull-right"><i class="fa fa-rub"></i>&nbsp500</h4><br/>
+    <h4 style="text-overflow: ellipsis;">
+      <a class="product_link" href="/items/19625" style="word-wrap: break-word;white-space: normal">
+        Учебник. Механика военно-воздушных сил
+      </a>
+    </h4>
+    Содержание: Электромагнитные колебания, электровакумные приборы, полупроводниковые приборы, радиопередающие устройства, радиоприемные устройства, радиосвязные устройства, авиационные радионавигационные устройства
+  </div>
+</div>
+
+            </div>
+                        <div class="col-sm-4 col-lg-4 col-md-4">
+              <div class="thumbnail">
+  
+    <!-- /state/add-to-cart// -->
+  <a class="to-basket product_link"
+     method="POST"
+     after="RELOAD"
+     href="/items/19626">
+    
+    <div data-content="В корзину" class="image placeholder"
+         style="background-position:center !important;
+                background: no-repeat;
+                height:200px;
+                background-image: url('/200x300/1412004855.jpg')">
+    </div>
+  </a>
+  
+  <div class="caption">
+    <h4 class="pull-right"><i class="fa fa-rub"></i>&nbsp1000</h4><br/>
+    <h4 style="text-overflow: ellipsis;">
+      <a class="product_link" href="/items/19626" style="word-wrap: break-word;white-space: normal">
+        Справочник яхтсмена
+      </a>
+    </h4>
+    Изложены практически все вопросы, связанные с устройством, эксплуатацией и совершенствованием яхт, содержатся разделы по основам парусного спорта, подготовке яхтенных рулевых, крейсерским плаваниям, навигации, метеорологии, уходу за яхтой и безопасности плавания. В приложении даны основы аэрогидродинамики и такелажных работ. Большой иллюстративный материал: рисунки, схемы, фотографии.
+  </div>
+</div>
+
+            </div>
+                        <div class="col-sm-4 col-lg-4 col-md-4">
+              <div class="thumbnail">
+  
+    <!-- /state/add-to-cart// -->
+  <a class="to-basket product_link"
+     method="POST"
+     after="RELOAD"
+     href="/items/21811">
+    
+    <div data-content="В корзину" class="image placeholder"
+         style="background-position:center !important;
+                background: no-repeat;
+                height:200px;
+                background-image: url('/200x300/P_20160218_102958.jpg')">
+    </div>
+  </a>
+  
+  <div class="caption">
+    <h4 class="pull-right"><i class="fa fa-rub"></i>&nbsp500</h4><br/>
+    <h4 style="text-overflow: ellipsis;">
+      <a class="product_link" href="/items/21811" style="word-wrap: break-word;white-space: normal">
+        Busy, busy world
+      </a>
+    </h4>
+    
+  </div>
+</div>
+
+            </div>
+                        <div class="col-sm-4 col-lg-4 col-md-4">
+              <div class="thumbnail">
+  
+    <!-- /state/add-to-cart// -->
+  <a class="to-basket product_link"
+     method="POST"
+     after="RELOAD"
+     href="/items/21812">
+    
+    <div data-content="В корзину" class="image placeholder"
+         style="background-position:center !important;
+                background: no-repeat;
+                height:200px;
+                background-image: url('/200x300/P_20160218_103549.jpg')">
+    </div>
+  </a>
+  
+  <div class="caption">
+    <h4 class="pull-right"><i class="fa fa-rub"></i>&nbsp300</h4><br/>
+    <h4 style="text-overflow: ellipsis;">
+      <a class="product_link" href="/items/21812" style="word-wrap: break-word;white-space: normal">
+        Песнь о вещем Олеге 
+      </a>
+    </h4>
+    Раскладушка 
+  </div>
+</div>
+
+            </div>
+                        <div class="col-sm-4 col-lg-4 col-md-4">
+              <div class="thumbnail">
+  
+    <!-- /state/add-to-cart// -->
+  <a class="to-basket product_link"
+     method="POST"
+     after="RELOAD"
+     href="/items/21813">
+    
+    <div data-content="В корзину" class="image placeholder"
+         style="background-position:center !important;
+                background: no-repeat;
+                height:200px;
+                background-image: url('/200x300/P_20160218_103613.jpg')">
+    </div>
+  </a>
+  
+  <div class="caption">
+    <h4 class="pull-right"><i class="fa fa-rub"></i>&nbsp2500</h4><br/>
+    <h4 style="text-overflow: ellipsis;">
+      <a class="product_link" href="/items/21813" style="word-wrap: break-word;white-space: normal">
+        Фотоальбом семьи за 1939 г.
+      </a>
+    </h4>
+    
+  </div>
+</div>
+
+            </div>
+                        <div class="col-sm-4 col-lg-4 col-md-4">
+              <div class="thumbnail">
+  
+    <!-- /state/add-to-cart// -->
+  <a class="to-basket product_link"
+     method="POST"
+     after="RELOAD"
+     href="/items/21814">
+    
+    <div data-content="В корзину" class="image placeholder"
+         style="background-position:center !important;
+                background: no-repeat;
+                height:200px;
+                background-image: url('/200x300/P_20160218_102758.jpg')">
+    </div>
+  </a>
+  
+  <div class="caption">
+    <h4 class="pull-right"><i class="fa fa-rub"></i>&nbsp650</h4><br/>
+    <h4 style="text-overflow: ellipsis;">
+      <a class="product_link" href="/items/21814" style="word-wrap: break-word;white-space: normal">
+        Warszawa
+      </a>
+    </h4>
+    
+  </div>
+</div>
+
+            </div>
+                        <div class="col-sm-4 col-lg-4 col-md-4">
+              <div class="thumbnail">
+  
+    <!-- /state/add-to-cart// -->
+  <a class="to-basket product_link"
+     method="POST"
+     after="RELOAD"
+     href="/items/21815">
+    
+    <div data-content="В корзину" class="image placeholder"
+         style="background-position:center !important;
+                background: no-repeat;
+                height:200px;
+                background-image: url('/200x300/P_20160218_102739.jpg')">
+    </div>
+  </a>
+  
+  <div class="caption">
+    <h4 class="pull-right"><i class="fa fa-rub"></i>&nbsp1500</h4><br/>
+    <h4 style="text-overflow: ellipsis;">
+      <a class="product_link" href="/items/21815" style="word-wrap: break-word;white-space: normal">
+        Corinne ou L&#39;italie par madame de stael
+      </a>
+    </h4>
+    
+  </div>
+</div>
+
+            </div>
+                        <div class="col-sm-4 col-lg-4 col-md-4">
+              <div class="thumbnail">
+  
+    <!-- /state/add-to-cart// -->
+  <a class="to-basket product_link"
+     method="POST"
+     after="RELOAD"
+     href="/items/21816">
+    
+    <div data-content="В корзину" class="image placeholder"
+         style="background-position:center !important;
+                background: no-repeat;
+                height:200px;
+                background-image: url('/200x300/P_20160218_102841.jpg')">
+    </div>
+  </a>
+  
+  <div class="caption">
+    <h4 class="pull-right"><i class="fa fa-rub"></i>&nbsp350</h4><br/>
+    <h4 style="text-overflow: ellipsis;">
+      <a class="product_link" href="/items/21816" style="word-wrap: break-word;white-space: normal">
+        Die kleine Seejungfrau und andre Marchen
+      </a>
+    </h4>
+    
+  </div>
+</div>
+
+            </div>
+                        <div class="col-sm-4 col-lg-4 col-md-4">
+              <div class="thumbnail">
+  
+    <!-- /state/add-to-cart// -->
+  <a class="to-basket product_link"
+     method="POST"
+     after="RELOAD"
+     href="/items/21817">
+    
+    <div data-content="В корзину" class="image placeholder"
+         style="background-position:center !important;
+                background: no-repeat;
+                height:200px;
+                background-image: url('/200x300/P_20160218_102848.jpg')">
+    </div>
+  </a>
+  
+  <div class="caption">
+    <h4 class="pull-right"><i class="fa fa-rub"></i>&nbsp1500</h4><br/>
+    <h4 style="text-overflow: ellipsis;">
+      <a class="product_link" href="/items/21817" style="word-wrap: break-word;white-space: normal">
+        Чурлянис
+      </a>
+    </h4>
+    
+  </div>
+</div>
+
+            </div>
+                        <div class="col-sm-4 col-lg-4 col-md-4">
+              <div class="thumbnail">
+  
+    <!-- /state/add-to-cart// -->
+  <a class="to-basket product_link"
+     method="POST"
+     after="RELOAD"
+     href="/items/21818">
+    
+    <div data-content="В корзину" class="image placeholder"
+         style="background-position:center !important;
+                background: no-repeat;
+                height:200px;
+                background-image: url('/200x300/P_20160218_102937.jpg')">
+    </div>
+  </a>
+  
+  <div class="caption">
+    <h4 class="pull-right"><i class="fa fa-rub"></i>&nbsp500</h4><br/>
+    <h4 style="text-overflow: ellipsis;">
+      <a class="product_link" href="/items/21818" style="word-wrap: break-word;white-space: normal">
+        Второ пътyване с Диоген
+      </a>
+    </h4>
+    
+  </div>
+</div>
+
+            </div>
+                        <div class="col-sm-4 col-lg-4 col-md-4">
+              <div class="thumbnail">
+  
+    <!-- /state/add-to-cart// -->
+  <a class="to-basket product_link"
+     method="POST"
+     after="RELOAD"
+     href="/items/21819">
+    
+    <div data-content="В корзину" class="image placeholder"
+         style="background-position:center !important;
+                background: no-repeat;
+                height:200px;
+                background-image: url('/200x300/P_20160218_102658.jpg')">
+    </div>
+  </a>
+  
+  <div class="caption">
+    <h4 class="pull-right"><i class="fa fa-rub"></i>&nbsp400</h4><br/>
+    <h4 style="text-overflow: ellipsis;">
+      <a class="product_link" href="/items/21819" style="word-wrap: break-word;white-space: normal">
+        Житие преподобной Парскевы 
+      </a>
+    </h4>
+    
+  </div>
+</div>
+
+            </div>
+                        <div class="col-sm-4 col-lg-4 col-md-4">
+              <div class="thumbnail">
+  
+    <!-- /state/add-to-cart// -->
+  <a class="to-basket product_link"
+     method="POST"
+     after="RELOAD"
+     href="/items/21820">
+    
+    <div data-content="В корзину" class="image placeholder"
+         style="background-position:center !important;
+                background: no-repeat;
+                height:200px;
+                background-image: url('/200x300/P_20160218_102708.jpg')">
+    </div>
+  </a>
+  
+  <div class="caption">
+    <h4 class="pull-right"><i class="fa fa-rub"></i>&nbsp1500</h4><br/>
+    <h4 style="text-overflow: ellipsis;">
+      <a class="product_link" href="/items/21820" style="word-wrap: break-word;white-space: normal">
+        Странник 
+      </a>
+    </h4>
+    
+  </div>
+</div>
+
+            </div>
+                        <div class="col-sm-4 col-lg-4 col-md-4">
+              <div class="thumbnail">
+  
+    <!-- /state/add-to-cart// -->
+  <a class="to-basket product_link"
+     method="POST"
+     after="RELOAD"
+     href="/items/21821">
+    
+    <div data-content="В корзину" class="image placeholder"
+         style="background-position:center !important;
+                background: no-repeat;
+                height:200px;
+                background-image: url('/200x300/P_20160218_103525.jpg')">
+    </div>
+  </a>
+  
+  <div class="caption">
+    <h4 class="pull-right"><i class="fa fa-rub"></i>&nbsp300</h4><br/>
+    <h4 style="text-overflow: ellipsis;">
+      <a class="product_link" href="/items/21821" style="word-wrap: break-word;white-space: normal">
+        Романсы 
+      </a>
+    </h4>
+    
+  </div>
+</div>
+
+            </div>
+                        <div class="col-sm-4 col-lg-4 col-md-4">
+              <div class="thumbnail">
+  
+    <!-- /state/add-to-cart// -->
+  <a class="to-basket product_link"
+     method="POST"
+     after="RELOAD"
+     href="/items/21822">
+    
+    <div data-content="В корзину" class="image placeholder"
+         style="background-position:center !important;
+                background: no-repeat;
+                height:200px;
+                background-image: url('/200x300/P_20160218_103509.jpg')">
+    </div>
+  </a>
+  
+  <div class="caption">
+    <h4 class="pull-right"><i class="fa fa-rub"></i>&nbsp1200</h4><br/>
+    <h4 style="text-overflow: ellipsis;">
+      <a class="product_link" href="/items/21822" style="word-wrap: break-word;white-space: normal">
+        Лесная принцесса
+      </a>
+    </h4>
+    
+  </div>
+</div>
+
+            </div>
+                        <div class="col-sm-4 col-lg-4 col-md-4">
+              <div class="thumbnail">
+  
+    <!-- /state/add-to-cart// -->
+  <a class="to-basket product_link"
+     method="POST"
+     after="RELOAD"
+     href="/items/21823">
+    
+    <div data-content="В корзину" class="image placeholder"
+         style="background-position:center !important;
+                background: no-repeat;
+                height:200px;
+                background-image: url('/200x300/P_20160218_103443.jpg')">
+    </div>
+  </a>
+  
+  <div class="caption">
+    <h4 class="pull-right"><i class="fa fa-rub"></i>&nbsp500</h4><br/>
+    <h4 style="text-overflow: ellipsis;">
+      <a class="product_link" href="/items/21823" style="word-wrap: break-word;white-space: normal">
+        Возвращение с парада. Полька- марш
+      </a>
+    </h4>
+    
+  </div>
+</div>
+
+            </div>
+                        <div class="col-sm-4 col-lg-4 col-md-4">
+              <div class="thumbnail">
+  
+    <!-- /state/add-to-cart// -->
+  <a class="to-basket product_link"
+     method="POST"
+     after="RELOAD"
+     href="/items/21824">
+    
+    <div data-content="В корзину" class="image placeholder"
+         style="background-position:center !important;
+                background: no-repeat;
+                height:200px;
+                background-image: url('/200x300/P_20160218_103433.jpg')">
+    </div>
+  </a>
+  
+  <div class="caption">
+    <h4 class="pull-right"><i class="fa fa-rub"></i>&nbsp350</h4><br/>
+    <h4 style="text-overflow: ellipsis;">
+      <a class="product_link" href="/items/21824" style="word-wrap: break-word;white-space: normal">
+        Современные вопросы при свете христианства 
+      </a>
+    </h4>
+    
+  </div>
+</div>
+
+            </div>
+                        <div class="col-sm-4 col-lg-4 col-md-4">
+              <div class="thumbnail">
+  
+    <!-- /state/add-to-cart// -->
+  <a class="to-basket product_link"
+     method="POST"
+     after="RELOAD"
+     href="/items/21825">
+    
+    <div data-content="В корзину" class="image placeholder"
+         style="background-position:center !important;
+                background: no-repeat;
+                height:200px;
+                background-image: url('/200x300/P_20160218_103423.jpg')">
+    </div>
+  </a>
+  
+  <div class="caption">
+    <h4 class="pull-right"><i class="fa fa-rub"></i>&nbsp1500</h4><br/>
+    <h4 style="text-overflow: ellipsis;">
+      <a class="product_link" href="/items/21825" style="word-wrap: break-word;white-space: normal">
+        Собрание рисунков по истории русского искусства 
+      </a>
+    </h4>
+    
+  </div>
+</div>
+
+            </div>
+                        <div class="col-sm-4 col-lg-4 col-md-4">
+              <div class="thumbnail">
+  
+    <!-- /state/add-to-cart// -->
+  <a class="to-basket product_link"
+     method="POST"
+     after="RELOAD"
+     href="/items/21826">
+    
+    <div data-content="В корзину" class="image placeholder"
+         style="background-position:center !important;
+                background: no-repeat;
+                height:200px;
+                background-image: url('/200x300/P_20160218_103407.jpg')">
+    </div>
+  </a>
+  
+  <div class="caption">
+    <h4 class="pull-right"><i class="fa fa-rub"></i>&nbsp1000</h4><br/>
+    <h4 style="text-overflow: ellipsis;">
+      <a class="product_link" href="/items/21826" style="word-wrap: break-word;white-space: normal">
+        Корделия вальс
+      </a>
+    </h4>
+    Рукописное 
+  </div>
+</div>
+
+            </div>
+                        <div class="col-sm-4 col-lg-4 col-md-4">
+              <div class="thumbnail">
+  
+    <!-- /state/add-to-cart// -->
+  <a class="to-basket product_link"
+     method="POST"
+     after="RELOAD"
+     href="/items/21827">
+    
+    <div data-content="В корзину" class="image placeholder"
+         style="background-position:center !important;
+                background: no-repeat;
+                height:200px;
+                background-image: url('/200x300/P_20160218_103356.jpg')">
+    </div>
+  </a>
+  
+  <div class="caption">
+    <h4 class="pull-right"><i class="fa fa-rub"></i>&nbsp500</h4><br/>
+    <h4 style="text-overflow: ellipsis;">
+      <a class="product_link" href="/items/21827" style="word-wrap: break-word;white-space: normal">
+        Весна
+      </a>
+    </h4>
+    
+  </div>
+</div>
+
+            </div>
+                        <div class="col-sm-4 col-lg-4 col-md-4">
+              <div class="thumbnail">
+  
+    <!-- /state/add-to-cart// -->
+  <a class="to-basket product_link"
+     method="POST"
+     after="RELOAD"
+     href="/items/21828">
+    
+    <div data-content="В корзину" class="image placeholder"
+         style="background-position:center !important;
+                background: no-repeat;
+                height:200px;
+                background-image: url('/200x300/P_20160218_103348.jpg')">
+    </div>
+  </a>
+  
+  <div class="caption">
+    <h4 class="pull-right"><i class="fa fa-rub"></i>&nbsp500</h4><br/>
+    <h4 style="text-overflow: ellipsis;">
+      <a class="product_link" href="/items/21828" style="word-wrap: break-word;white-space: normal">
+        Любимый романс Вари Паниной 
+      </a>
+    </h4>
+    
+  </div>
+</div>
+
+            </div>
+                        <div class="col-sm-4 col-lg-4 col-md-4">
+              <div class="thumbnail">
+  
+    <!-- /state/add-to-cart// -->
+  <a class="to-basket product_link"
+     method="POST"
+     after="RELOAD"
+     href="/items/21829">
+    
+    <div data-content="В корзину" class="image placeholder"
+         style="background-position:center !important;
+                background: no-repeat;
+                height:200px;
+                background-image: url('/200x300/P_20160218_103340.jpg')">
+    </div>
+  </a>
+  
+  <div class="caption">
+    <h4 class="pull-right"><i class="fa fa-rub"></i>&nbsp300</h4><br/>
+    <h4 style="text-overflow: ellipsis;">
+      <a class="product_link" href="/items/21829" style="word-wrap: break-word;white-space: normal">
+        Хайдушка песень 
+      </a>
+    </h4>
+    
+  </div>
+</div>
+
+            </div>
+                        <div class="col-sm-4 col-lg-4 col-md-4">
+              <div class="thumbnail">
+  
+    <!-- /state/add-to-cart// -->
+  <a class="to-basket product_link"
+     method="POST"
+     after="RELOAD"
+     href="/items/21830">
+    
+    <div data-content="В корзину" class="image placeholder"
+         style="background-position:center !important;
+                background: no-repeat;
+                height:200px;
+                background-image: url('/200x300/P_20160218_103331.jpg')">
+    </div>
+  </a>
+  
+  <div class="caption">
+    <h4 class="pull-right"><i class="fa fa-rub"></i>&nbsp300</h4><br/>
+    <h4 style="text-overflow: ellipsis;">
+      <a class="product_link" href="/items/21830" style="word-wrap: break-word;white-space: normal">
+        Девойче
+      </a>
+    </h4>
+    
+  </div>
+</div>
+
+            </div>
+                        <div class="col-sm-4 col-lg-4 col-md-4">
+              <div class="thumbnail">
+  
+    <!-- /state/add-to-cart// -->
+  <a class="to-basket product_link"
+     method="POST"
+     after="RELOAD"
+     href="/items/21831">
+    
+    <div data-content="В корзину" class="image placeholder"
+         style="background-position:center !important;
+                background: no-repeat;
+                height:200px;
+                background-image: url('/200x300/P_20160218_103323.jpg')">
+    </div>
+  </a>
+  
+  <div class="caption">
+    <h4 class="pull-right"><i class="fa fa-rub"></i>&nbsp500</h4><br/>
+    <h4 style="text-overflow: ellipsis;">
+      <a class="product_link" href="/items/21831" style="word-wrap: break-word;white-space: normal">
+        Ёлочная песенка 
+      </a>
+    </h4>
+    Музыка Матвея Блантера, слова В.И. Лебедева- Кумача 
+  </div>
+</div>
+
+            </div>
+                        <div class="col-sm-4 col-lg-4 col-md-4">
+              <div class="thumbnail">
+  
+    <!-- /state/add-to-cart// -->
+  <a class="to-basket product_link"
+     method="POST"
+     after="RELOAD"
+     href="/items/21832">
+    
+    <div data-content="В корзину" class="image placeholder"
+         style="background-position:center !important;
+                background: no-repeat;
+                height:200px;
+                background-image: url('/200x300/P_20160218_103315.jpg')">
+    </div>
+  </a>
+  
+  <div class="caption">
+    <h4 class="pull-right"><i class="fa fa-rub"></i>&nbsp500</h4><br/>
+    <h4 style="text-overflow: ellipsis;">
+      <a class="product_link" href="/items/21832" style="word-wrap: break-word;white-space: normal">
+        Василий Соколов. Романсы. 
+      </a>
+    </h4>
+    
+  </div>
+</div>
+
+            </div>
+                        <div class="col-sm-4 col-lg-4 col-md-4">
+              <div class="thumbnail">
+  
+    <!-- /state/add-to-cart// -->
+  <a class="to-basket product_link"
+     method="POST"
+     after="RELOAD"
+     href="/items/21833">
+    
+    <div data-content="В корзину" class="image placeholder"
+         style="background-position:center !important;
+                background: no-repeat;
+                height:200px;
+                background-image: url('/200x300/P_20160218_103257.jpg')">
+    </div>
+  </a>
+  
+  <div class="caption">
+    <h4 class="pull-right"><i class="fa fa-rub"></i>&nbsp300</h4><br/>
+    <h4 style="text-overflow: ellipsis;">
+      <a class="product_link" href="/items/21833" style="word-wrap: break-word;white-space: normal">
+        Репертуар театров и кабарэ
+      </a>
+    </h4>
+    Текст Т. Щепкина- Куперник, музыка Н. Маныкина- Невструева 
+  </div>
+</div>
+
+            </div>
+                        <div class="col-sm-4 col-lg-4 col-md-4">
+              <div class="thumbnail">
+  
+    <!-- /state/add-to-cart// -->
+  <a class="to-basket product_link"
+     method="POST"
+     after="RELOAD"
+     href="/items/21834">
+    
+    <div data-content="В корзину" class="image placeholder"
+         style="background-position:center !important;
+                background: no-repeat;
+                height:200px;
+                background-image: url('/200x300/P_20160218_103245.jpg')">
+    </div>
+  </a>
+  
+  <div class="caption">
+    <h4 class="pull-right"><i class="fa fa-rub"></i>&nbsp300</h4><br/>
+    <h4 style="text-overflow: ellipsis;">
+      <a class="product_link" href="/items/21834" style="word-wrap: break-word;white-space: normal">
+        Танго. Латинский танец
+      </a>
+    </h4>
+    
+  </div>
+</div>
+
+            </div>
+                        <div class="col-sm-4 col-lg-4 col-md-4">
+              <div class="thumbnail">
+  
+    <!-- /state/add-to-cart// -->
+  <a class="to-basket product_link"
+     method="POST"
+     after="RELOAD"
+     href="/items/21835">
+    
+    <div data-content="В корзину" class="image placeholder"
+         style="background-position:center !important;
+                background: no-repeat;
+                height:200px;
+                background-image: url('/200x300/P_20160218_103235.jpg')">
+    </div>
+  </a>
+  
+  <div class="caption">
+    <h4 class="pull-right"><i class="fa fa-rub"></i>&nbsp300</h4><br/>
+    <h4 style="text-overflow: ellipsis;">
+      <a class="product_link" href="/items/21835" style="word-wrap: break-word;white-space: normal">
+        П. Чайковский. Романсы и дуэты для меццо- сопрано 
+      </a>
+    </h4>
+    
+  </div>
+</div>
+
+            </div>
+                        <div class="col-sm-4 col-lg-4 col-md-4">
+              <div class="thumbnail">
+  
+    <!-- /state/add-to-cart// -->
+  <a class="to-basket product_link"
+     method="POST"
+     after="RELOAD"
+     href="/items/21836">
+    
+    <div data-content="В корзину" class="image placeholder"
+         style="background-position:center !important;
+                background: no-repeat;
+                height:200px;
+                background-image: url('/200x300/P_20160218_103220.jpg')">
+    </div>
+  </a>
+  
+  <div class="caption">
+    <h4 class="pull-right"><i class="fa fa-rub"></i>&nbsp300</h4><br/>
+    <h4 style="text-overflow: ellipsis;">
+      <a class="product_link" href="/items/21836" style="word-wrap: break-word;white-space: normal">
+        Я. Ступовий
+      </a>
+    </h4>
+    
+  </div>
+</div>
+
+            </div>
+                        <div class="col-sm-4 col-lg-4 col-md-4">
+              <div class="thumbnail">
+  
+    <!-- /state/add-to-cart// -->
+  <a class="to-basket product_link"
+     method="POST"
+     after="RELOAD"
+     href="/items/21837">
+    
+    <div data-content="В корзину" class="image placeholder"
+         style="background-position:center !important;
+                background: no-repeat;
+                height:200px;
+                background-image: url('/200x300/P_20160218_103206.jpg')">
+    </div>
+  </a>
+  
+  <div class="caption">
+    <h4 class="pull-right"><i class="fa fa-rub"></i>&nbsp300</h4><br/>
+    <h4 style="text-overflow: ellipsis;">
+      <a class="product_link" href="/items/21837" style="word-wrap: break-word;white-space: normal">
+        Л. Бетховен. Песни
+      </a>
+    </h4>
+    
+  </div>
+</div>
+
+            </div>
+                        <div class="col-sm-4 col-lg-4 col-md-4">
+              <div class="thumbnail">
+  
+    <!-- /state/add-to-cart// -->
+  <a class="to-basket product_link"
+     method="POST"
+     after="RELOAD"
+     href="/items/21838">
+    
+    <div data-content="В корзину" class="image placeholder"
+         style="background-position:center !important;
+                background: no-repeat;
+                height:200px;
+                background-image: url('/200x300/P_20160218_103144.jpg')">
+    </div>
+  </a>
+  
+  <div class="caption">
+    <h4 class="pull-right"><i class="fa fa-rub"></i>&nbsp800</h4><br/>
+    <h4 style="text-overflow: ellipsis;">
+      <a class="product_link" href="/items/21838" style="word-wrap: break-word;white-space: normal">
+        Песни торопки
+      </a>
+    </h4>
+    Рукописные ноты. Музыка Верестовоского. 
+  </div>
+</div>
+
+            </div>
+                        <div class="col-sm-4 col-lg-4 col-md-4">
+              <div class="thumbnail">
+  
+    <!-- /state/add-to-cart// -->
+  <a class="to-basket product_link"
+     method="POST"
+     after="RELOAD"
+     href="/items/21839">
+    
+    <div data-content="В корзину" class="image placeholder"
+         style="background-position:center !important;
+                background: no-repeat;
+                height:200px;
+                background-image: url('/200x300/P_20160218_103128.jpg')">
+    </div>
+  </a>
+  
+  <div class="caption">
+    <h4 class="pull-right"><i class="fa fa-rub"></i>&nbsp300</h4><br/>
+    <h4 style="text-overflow: ellipsis;">
+      <a class="product_link" href="/items/21839" style="word-wrap: break-word;white-space: normal">
+        Айстри
+      </a>
+    </h4>
+    
+  </div>
+</div>
+
+            </div>
+                        <div class="col-sm-4 col-lg-4 col-md-4">
+              <div class="thumbnail">
+  
+    <!-- /state/add-to-cart// -->
+  <a class="to-basket product_link"
+     method="POST"
+     after="RELOAD"
+     href="/items/21840">
+    
+    <div data-content="В корзину" class="image placeholder"
+         style="background-position:center !important;
+                background: no-repeat;
+                height:200px;
+                background-image: url('/200x300/P_20160218_103111.jpg')">
+    </div>
+  </a>
+  
+  <div class="caption">
+    <h4 class="pull-right"><i class="fa fa-rub"></i>&nbsp300</h4><br/>
+    <h4 style="text-overflow: ellipsis;">
+      <a class="product_link" href="/items/21840" style="word-wrap: break-word;white-space: normal">
+        Песнь торжествующей России 
+      </a>
+    </h4>
+    
+  </div>
+</div>
+
+            </div>
+                        <div class="col-sm-4 col-lg-4 col-md-4">
+              <div class="thumbnail">
+  
+    <!-- /state/add-to-cart// -->
+  <a class="to-basket product_link"
+     method="POST"
+     after="RELOAD"
+     href="/items/21841">
+    
+    <div data-content="В корзину" class="image placeholder"
+         style="background-position:center !important;
+                background: no-repeat;
+                height:200px;
+                background-image: url('/200x300/P_20160218_103056.jpg')">
+    </div>
+  </a>
+  
+  <div class="caption">
+    <h4 class="pull-right"><i class="fa fa-rub"></i>&nbsp300</h4><br/>
+    <h4 style="text-overflow: ellipsis;">
+      <a class="product_link" href="/items/21841" style="word-wrap: break-word;white-space: normal">
+        Шесть романсов и песен. Слова Бенедиктова, музыка С. Монюшко
+      </a>
+    </h4>
+    
+  </div>
+</div>
+
+            </div>
+                        <div class="col-sm-4 col-lg-4 col-md-4">
+              <div class="thumbnail">
+  
+    <!-- /state/add-to-cart// -->
+  <a class="to-basket product_link"
+     method="POST"
+     after="RELOAD"
+     href="/items/21842">
+    
+    <div data-content="В корзину" class="image placeholder"
+         style="background-position:center !important;
+                background: no-repeat;
+                height:200px;
+                background-image: url('/200x300/P_20160218_103010.jpg')">
+    </div>
+  </a>
+  
+  <div class="caption">
+    <h4 class="pull-right"><i class="fa fa-rub"></i>&nbsp300</h4><br/>
+    <h4 style="text-overflow: ellipsis;">
+      <a class="product_link" href="/items/21842" style="word-wrap: break-word;white-space: normal">
+        Пicнi настрою Вiршi О. Олеся, музика Я. Степового 
+      </a>
+    </h4>
+    
+  </div>
+</div>
+
+            </div>
+                        <div class="col-sm-4 col-lg-4 col-md-4">
+              <div class="thumbnail">
+  
+    <!-- /state/add-to-cart// -->
+  <a class="to-basket product_link"
+     method="POST"
+     after="RELOAD"
+     href="/items/21843">
+    
+    <div data-content="В корзину" class="image placeholder"
+         style="background-position:center !important;
+                background: no-repeat;
+                height:200px;
+                background-image: url('/200x300/P_20160218_103450.jpg')">
+    </div>
+  </a>
+  
+  <div class="caption">
+    <h4 class="pull-right"><i class="fa fa-rub"></i>&nbsp350</h4><br/>
+    <h4 style="text-overflow: ellipsis;">
+      <a class="product_link" href="/items/21843" style="word-wrap: break-word;white-space: normal">
+        Народная библиотека Кормчаго
+      </a>
+    </h4>
+    
+  </div>
+</div>
+
+            </div>
+                        <div class="col-sm-4 col-lg-4 col-md-4">
+              <div class="thumbnail">
+  
+    <!-- /state/add-to-cart// -->
+  <a class="to-basket product_link"
+     method="POST"
+     after="RELOAD"
+     href="/items/21844">
+    
+    <div data-content="В корзину" class="image placeholder"
+         style="background-position:center !important;
+                background: no-repeat;
+                height:200px;
+                background-image: url('/200x300/P_20160218_102540.jpg')">
+    </div>
+  </a>
+  
+  <div class="caption">
+    <h4 class="pull-right"><i class="fa fa-rub"></i>&nbsp300</h4><br/>
+    <h4 style="text-overflow: ellipsis;">
+      <a class="product_link" href="/items/21844" style="word-wrap: break-word;white-space: normal">
+        Вокальный вечер. Солисты московской государственной филармонии 
+      </a>
+    </h4>
+    
+  </div>
+</div>
+
+            </div>
+                        <div class="col-sm-4 col-lg-4 col-md-4">
+              <div class="thumbnail">
+  
+    <!-- /state/add-to-cart// -->
+  <a class="to-basket product_link"
+     method="POST"
+     after="RELOAD"
+     href="/items/21845">
+    
+    <div data-content="В корзину" class="image placeholder"
+         style="background-position:center !important;
+                background: no-repeat;
+                height:200px;
+                background-image: url('/200x300/P_20160218_102512.jpg')">
+    </div>
+  </a>
+  
+  <div class="caption">
+    <h4 class="pull-right"><i class="fa fa-rub"></i>&nbsp300</h4><br/>
+    <h4 style="text-overflow: ellipsis;">
+      <a class="product_link" href="/items/21845" style="word-wrap: break-word;white-space: normal">
+        Сметана. Квартет №2 
+      </a>
+    </h4>
+    
+  </div>
+</div>
+
+            </div>
+                        <div class="col-sm-4 col-lg-4 col-md-4">
+              <div class="thumbnail">
+  
+    <!-- /state/add-to-cart// -->
+  <a class="to-basket product_link"
+     method="POST"
+     after="RELOAD"
+     href="/items/21847">
+    
+    <div data-content="В корзину" class="image placeholder"
+         style="background-position:center !important;
+                background: no-repeat;
+                height:200px;
+                background-image: url('/200x300/P_20160218_102351-1.jpg')">
+    </div>
+  </a>
+  
+  <div class="caption">
+    <h4 class="pull-right"><i class="fa fa-rub"></i>&nbsp300</h4><br/>
+    <h4 style="text-overflow: ellipsis;">
+      <a class="product_link" href="/items/21847" style="word-wrap: break-word;white-space: normal">
+        Музыкальный лекторий. Зарубежная музыка 
+      </a>
+    </h4>
+    
+  </div>
+</div>
+
+            </div>
+                        <div class="col-sm-4 col-lg-4 col-md-4">
+              <div class="thumbnail">
+  
+    <!-- /state/add-to-cart// -->
+  <a class="to-basket product_link"
+     method="POST"
+     after="RELOAD"
+     href="/items/21848">
+    
+    <div data-content="В корзину" class="image placeholder"
+         style="background-position:center !important;
+                background: no-repeat;
+                height:200px;
+                background-image: url('/200x300/P_20160218_102321-1.jpg')">
+    </div>
+  </a>
+  
+  <div class="caption">
+    <h4 class="pull-right"><i class="fa fa-rub"></i>&nbsp300</h4><br/>
+    <h4 style="text-overflow: ellipsis;">
+      <a class="product_link" href="/items/21848" style="word-wrap: break-word;white-space: normal">
+        Солисты московской государственной филармонии 
+      </a>
+    </h4>
+    
+  </div>
+</div>
+
+            </div>
+            
+          </div>
+          <ul class="pagination pagination-sm pull-right fussy_font"></ul>
+        </div>
+        <!-- categories       -->
+        <div class="col-md-3">
+            <link href="/src/gastronom/search_book.css" rel="stylesheet">
+<div id="book-search-left">
+  <form method="GET" action="/search/">
+    <h2 class="accent-head" id="extincss_1">НАЙТИ КНИГУ<br id="extincss_2"></h2>
+    <div class="row input-row" id="extincss_3">
+      <input type="text" class="default-kit text-input gray valid" id="vidget-title" placeholder="Название" name="q"></div>
+    <div class="row input-row irl" id="extincss_7"></div>
+    
+    <div class="row input-row" id="extincss_8">
+      <input type="submit" class="default-kit button full black" value="НАЙТИ" id="vidget-search" type="submit">
+    </div>
+    <a href="/search/">Расширенный поиск</a>    
+
+  </form>
+</div>
+
+
+<div class="list-group">
+  <h3 class="fussy_font">Категории</h3>
+    <div class="dropdown list-group-item " style="padding:0px;">
+    <a type="button"
+            style="border:none;font-size:12px;width:100%;text-align:left;"
+            class="dropdown-toggle btn btn-default "
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false">Азия&nbsp<b>(17)</b></a>
+    <ul class="dropdown-menu">
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tdrazia">Азия: Другие страны&nbsp<b>(1)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tind">Азия: Индия, Пакистан, Тибет, Цейлон (Шри-Ланка)&nbsp<b>(2)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tchina">Азия: Китай, Монголия&nbsp<b>(3)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tsazia">Азия: Средняя Азия, Афганистан, Иран&nbsp<b>(3)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tbazia">Азия: Страны Ближнего Востока&nbsp<b>(2)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tjp">Азия: Япония, Корея&nbsp<b>(6)</b></a></li>
+      
+    </ul>
+  </div>
+    <div class="dropdown list-group-item " style="padding:0px;">
+    <a type="button"
+            style="border:none;font-size:12px;width:100%;text-align:left;"
+            class="dropdown-toggle btn btn-default "
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false">Антиквариат&nbsp<b>(481)</b></a>
+    <ul class="dropdown-menu">
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tanpaper">Антикварные: Афиши, плакаты, гравюры, фотографии&nbsp<b>(15)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tanvoina">Антикварные: Военное дело, военная история&nbsp<b>(5)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tanper">Антикварные: Газеты, журналы&nbsp<b>(159)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tandet">Антикварные: Детские книги и журналы&nbsp<b>(22)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tandr">Антикварные: Другие&nbsp<b>(25)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tangeo">Антикварные: Естествознание, Медицина&nbsp<b>(75)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tanart">Антикварные: Искусство&nbsp<b>(2)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tanist">Антикварные: История, Философия, Религия&nbsp<b>(85)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tanlit">Антикварные: Литературоведение, Книговедение&nbsp<b>(12)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tandokum">Антикварные: Оригиналы автографов, документов, рукописей&nbsp<b>(1)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tanprom">Антикварные: Промышленность и Техника&nbsp<b>(4)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tanpoem">Антикварные: Худ. лит-ра: Поэзия&nbsp<b>(30)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tanproz">Антикварные: Худ. лит-ра: Проза&nbsp<b>(46)</b></a></li>
+      
+    </ul>
+  </div>
+    <div class="dropdown list-group-item " style="padding:0px;">
+    <a type="button"
+            style="border:none;font-size:12px;width:100%;text-align:left;"
+            class="dropdown-toggle btn btn-default "
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false">Африка&nbsp<b>(1)</b></a>
+    <ul class="dropdown-menu">
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tdrafr">Африка: Другие страны&nbsp<b>(1)</b></a></li>
+      
+    </ul>
+  </div>
+    <div class="dropdown list-group-item " style="padding:0px;">
+    <a type="button"
+            style="border:none;font-size:12px;width:100%;text-align:left;"
+            class="dropdown-toggle btn btn-default "
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false">Биографии&nbsp<b>(88)</b></a>
+    <ul class="dropdown-menu">
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tmemvoina">Биографии, мемуары: Война, политика, дипломатия&nbsp<b>(26)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tbiograf">Биографии, мемуары: Другое&nbsp<b>(21)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tsjzl">Биографии, мемуары: ЖЗЛ (серия)&nbsp<b>(4)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tmemart">Биографии, мемуары: Искусство (театр, музыка, кино и др.)&nbsp<b>(13)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tmemlit">Биографии, мемуары: Литература&nbsp<b>(20)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tmemnauka">Биографии, мемуары: Наука&nbsp<b>(4)</b></a></li>
+      
+    </ul>
+  </div>
+    <div class="dropdown list-group-item " style="padding:0px;">
+    <a type="button"
+            style="border:none;font-size:12px;width:100%;text-align:left;"
+            class="dropdown-toggle btn btn-default "
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false">Детская литература&nbsp<b>(123)</b></a>
+    <ul class="dropdown-menu">
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tdetuch">Детская лит-ра: Познавательная, обучающая, развивающая&nbsp<b>(63)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tdetz">Детская лит-ра: Проза зарубежных авторов&nbsp<b>(7)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tdeto">Детская лит-ра: Проза отечественных авторов&nbsp<b>(10)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tdetskaz">Детская лит-ра: Сказки, стихи и басни&nbsp<b>(42)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tdetton">Детская лит-ра: тонкие книжки в мягкой обложке&nbsp<b>(1)</b></a></li>
+      
+    </ul>
+  </div>
+    <div class="dropdown list-group-item " style="padding:0px;">
+    <a type="button"
+            style="border:none;font-size:12px;width:100%;text-align:left;"
+            class="dropdown-toggle btn btn-default "
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false">Другие&nbsp<b>(1213)</b></a>
+    <ul class="dropdown-menu">
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/t2mv">2-я Мировая война (1939-1945 гг.)&nbsp<b>(2)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/t46">Антикварные: Книги до 1946г.&nbsp<b>(2)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tetnos">Антропология, этнография, мифология, фольклор&nbsp<b>(9)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tarktika">Арктика, Антарктика&nbsp<b>(1)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tarheolog">Археология, Палеонтология&nbsp<b>(1)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tarhitek">Архитектура.&nbsp<b>(13)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tastro">Астрономия, Космонавтика&nbsp<b>(6)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tpaper">Афиши, плакаты, гравюры, фотографии&nbsp<b>(25)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tfinans">Банковское дело, Финансы, Бухгалтерия&nbsp<b>(4)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tsbp">Библиотека поэта (БП, серия)&nbsp<b>(1)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tdelo">Бизнес, Менеджмент, Маркетинг&nbsp<b>(7)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tbiolog">Биологические науки&nbsp<b>(9)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tvet">Ветеринария&nbsp<b>(2)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tvoina">Военная история&nbsp<b>(17)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tvdelo">Военное дело: теория и практика, вооружение и оснащение, обеспечение и др.&nbsp<b>(19)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tper">Газеты, журналы&nbsp<b>(106)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tkulinar">Домоводство, Кулинария, Напитки&nbsp<b>(5)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tdrama">Драматургия&nbsp<b>(2)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tdrnauka">Другие естественные науки, Науковедение&nbsp<b>(3)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tdrteh">Другие технические науки&nbsp<b>(1)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/thobby">Другие хобби и увлечения&nbsp<b>(6)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tukr">Европа: Ближнее зарубежье (Белоруссия, Молдавия, Украина)&nbsp<b>(1)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tbrit">Европа: Великобритания, Ирландия, Исландия&nbsp<b>(1)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/trom">Европа: Италия, Испания, Португалия, Франция&nbsp<b>(4)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tkav">Европа: Кавказ, Закавказье&nbsp<b>(1)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tskan">Европа: Скандинавия, Прибалтика&nbsp<b>(1)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tzveri">Животные (дикие и домашние)&nbsp<b>(2)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tzakon">Законодательство, право&nbsp<b>(12)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/trudno">Затрудняюсь выбрать&nbsp<b>(30)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tiroman">Исторические романы&nbsp<b>(3)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tmaps">Карты и атласы. Топография, геодезия&nbsp<b>(62)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tkiber">Кибернетика, теория систем, синергетика&nbsp<b>(1)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tlingbook">Книги на иностранных языках&nbsp<b>(121)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tlingsssr">Книги на языках народов России и бывшего СССР&nbsp<b>(9)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tknigove">Книговедение, библиография, полиграфия&nbsp<b>(3)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tkoll">Коллекционирование (о марках, монетах, наградах и проч.)&nbsp<b>(7)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tlegprom">Легкая (текстильная, швейная, др.) и пищевая промышленность&nbsp<b>(3)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tletu">Летучие печатные издания (листовки, календарики, программки, приглашения, экслибрисы)&nbsp<b>(8)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tslp">Литературные Памятники (ЛП, серия)&nbsp<b>(7)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tlit">Литературоведение&nbsp<b>(109)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tmarx">Марксистско-ленинская литература&nbsp<b>(164)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tmat">Математика&nbsp<b>(14)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tstroy">Машиностроение, приборостроение&nbsp<b>(2)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tmetall">Металлургия, Горное дело&nbsp<b>(3)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tpodp">Многотомные издания, собрания сочинений&nbsp<b>(6)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tmoda">Мода, красота, рукоделие&nbsp<b>(3)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tgeo">Науки о Земле (география, геология и др.)&nbsp<b>(4)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/togorod">Огород, сад, растения&nbsp<b>(8)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tdokum">Оригиналы автографов, документов, рукописей&nbsp<b>(13)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/totdel">Отдельные тома многотомных изданий&nbsp<b>(1)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/totkr">Открытки, конверты&nbsp<b>(7)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tpedagog">Педагогика (дошкольная, школьная, общая)&nbsp<b>(11)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tpolit">Политология, геополитика, дипломатия&nbsp<b>(75)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tnauka">Популярная научно-техническая литература&nbsp<b>(1)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/prog">Программирование, Компьютеры&nbsp<b>(3)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/prod">Проданные и найденные книги&nbsp<b>(1)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tprom">Промышленность, производство&nbsp<b>(20)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tpsi">Психология&nbsp<b>(9)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tjurnal">Публицистика. Журналистика&nbsp<b>(2)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tput">Путешествия. Географические открытия&nbsp<b>(4)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tumor">Сатира и юмор&nbsp<b>(9)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tagro">Сельское хозяйство. Лесное хозяйство&nbsp<b>(8)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tslovar">Словари&nbsp<b>(22)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tlingslov">Словари иностранных языков&nbsp<b>(8)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tsocio">Социология, культурология, история быта&nbsp<b>(24)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tsport">Спорт и физкультура&nbsp<b>(9)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tstroit">Строительство&nbsp<b>(2)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tlinguch">Учебники и самоучители иностранных языков&nbsp<b>(9)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tfiz">Физика&nbsp<b>(13)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tfoto">Фотодело, Фотоальбомы&nbsp<b>(17)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/thimia">Химия, хим. производство&nbsp<b>(11)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tshah">Шахматы, шашки, карточные и логические игры&nbsp<b>(1)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tmagia">Эзотерика (магия, оккультизм, парапсихология), астрология, уфология и др.&nbsp<b>(1)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tekonom">Экономика, политэкономия&nbsp<b>(75)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tradio">Электроника, электротехника, радио и связь&nbsp<b>(17)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tenergo">Энергетика&nbsp<b>(1)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tsprav">Энциклопедии, справочники&nbsp<b>(9)</b></a></li>
+      
+    </ul>
+  </div>
+    <div class="dropdown list-group-item " style="padding:0px;">
+    <a type="button"
+            style="border:none;font-size:12px;width:100%;text-align:left;"
+            class="dropdown-toggle btn btn-default "
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false">Искусство&nbsp<b>(167)</b></a>
+    <ul class="dropdown-menu">
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tjivo">Искусствo: Живопись, графика, скульптура&nbsp<b>(63)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tkino">Искусствo: Кино, ТВ, театр&nbsp<b>(17)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tmuzei">Искусствo: Музеи, выставки, каталоги&nbsp<b>(18)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tnotes">Искусствo: Музыка, ноты, опера, балет, танцы&nbsp<b>(38)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tiskus">Искусствo: Теория и история искусства, эстетика&nbsp<b>(16)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tdris">Искусство: Декоративно-прикладное. Другие виды искусства&nbsp<b>(15)</b></a></li>
+      
+    </ul>
+  </div>
+    <div class="dropdown list-group-item " style="padding:0px;">
+    <a type="button"
+            style="border:none;font-size:12px;width:100%;text-align:left;"
+            class="dropdown-toggle btn btn-default "
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false">История&nbsp<b>(94)</b></a>
+    <ul class="dropdown-menu">
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tisdrev">История всемирная: Древний мир (другие регионы)&nbsp<b>(5)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tisant">История всемирная: Древняя Греция и Рим&nbsp<b>(5)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tisbur">История всемирная: Новая (1640-1918 гг.)&nbsp<b>(3)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tisnov">История всемирная: Новейшая (после 1918 г.)&nbsp<b>(5)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tistor">История всемирная: Общие вопросы. Книги, охватывающие несколько периодов&nbsp<b>(10)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tissred">История всемирная: Средние века (476-1640 гг.)&nbsp<b>(4)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tiross1">История России (1240-1700 гг.)&nbsp<b>(1)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tiross2">История России (1700-1917 гг.)&nbsp<b>(18)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tiross0">История России (до 1240 г.)&nbsp<b>(2)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tirossdr">История России: Общие вопросы. Книги, охватывающие несколько периодов&nbsp<b>(7)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tiross3">История СССР и России (после 1917 г.)&nbsp<b>(34)</b></a></li>
+      
+    </ul>
+  </div>
+    <div class="dropdown list-group-item " style="padding:0px;">
+    <a type="button"
+            style="border:none;font-size:12px;width:100%;text-align:left;"
+            class="dropdown-toggle btn btn-default "
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false">Краеведение&nbsp<b>(16)</b></a>
+    <ul class="dropdown-menu">
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tross">Краеведение России: Другое&nbsp<b>(1)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tmsk">Краеведение России: Москва и Подмосковье&nbsp<b>(8)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tsib">Краеведение России: Сибирь, Дальний Восток&nbsp<b>(3)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tcentru">Краеведение России: Центр, Запад, Европейский Север&nbsp<b>(2)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tuga">Краеведение России: Юг, Кавказ&nbsp<b>(2)</b></a></li>
+      
+    </ul>
+  </div>
+    <div class="dropdown list-group-item " style="padding:0px;">
+    <a type="button"
+            style="border:none;font-size:12px;width:100%;text-align:left;"
+            class="dropdown-toggle btn btn-default "
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false">Медицина&nbsp<b>(63)</b></a>
+    <ul class="dropdown-menu">
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tamed">Медицина: Анатомия и физиология&nbsp<b>(13)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tmed">Медицина: Другое&nbsp<b>(27)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tdmed">Медицина: Здоровье ребенка. Педиатрия&nbsp<b>(2)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tpmed">Медицина: Психиатрия, нервные болезни&nbsp<b>(2)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tkmed">Медицина: Терапия (внутренние болезни), инфекционные болезни&nbsp<b>(12)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tfmed">Медицина: Фармакология. Лекарственные растения&nbsp<b>(5)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/thmed">Медицина: Хирургия, онкология, травматология, ортопедия&nbsp<b>(2)</b></a></li>
+      
+    </ul>
+  </div>
+    <div class="dropdown list-group-item " style="padding:0px;">
+    <a type="button"
+            style="border:none;font-size:12px;width:100%;text-align:left;"
+            class="dropdown-toggle btn btn-default "
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false">Пособия&nbsp<b>(26)</b></a>
+    <ul class="dropdown-menu">
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tposobsam">Пособия для абитуриентов и самообразования&nbsp<b>(14)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tposobu">Пособия для учителей&nbsp<b>(12)</b></a></li>
+      
+    </ul>
+  </div>
+    <div class="dropdown list-group-item " style="padding:0px;">
+    <a type="button"
+            style="border:none;font-size:12px;width:100%;text-align:left;"
+            class="dropdown-toggle btn btn-default "
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false">Поэзия&nbsp<b>(110)</b></a>
+    <ul class="dropdown-menu">
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tpoem">Поэзия XX-XXI вв.&nbsp<b>(83)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/t19poem">Поэзия до XX в.&nbsp<b>(10)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tvlit">Поэзия и проза о войне&nbsp<b>(17)</b></a></li>
+      
+    </ul>
+  </div>
+    <div class="dropdown list-group-item " style="padding:0px;">
+    <a type="button"
+            style="border:none;font-size:12px;width:100%;text-align:left;"
+            class="dropdown-toggle btn btn-default "
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false">Приключения&nbsp<b>(3)</b></a>
+    <ul class="dropdown-menu">
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tprikl">Приключения&nbsp<b>(2)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tfant">Приключения и фантастика: Сборники&nbsp<b>(1)</b></a></li>
+      
+    </ul>
+  </div>
+    <div class="dropdown list-group-item " style="padding:0px;">
+    <a type="button"
+            style="border:none;font-size:12px;width:100%;text-align:left;"
+            class="dropdown-toggle btn btn-default "
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false">Проза&nbsp<b>(97)</b></a>
+    <ul class="dropdown-menu">
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tz19proz">Проза зарубежная XIX века&nbsp<b>(6)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tzproz">Проза зарубежная XX-XXI вв.&nbsp<b>(7)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tz18proz">Проза зарубежная до XIX века&nbsp<b>(5)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/toproz">Проза отечественная XX-XXI вв.&nbsp<b>(68)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/to19proz">Проза отечественная до XX в.&nbsp<b>(11)</b></a></li>
+      
+    </ul>
+  </div>
+    <div class="dropdown list-group-item " style="padding:0px;">
+    <a type="button"
+            style="border:none;font-size:12px;width:100%;text-align:left;"
+            class="dropdown-toggle btn btn-default "
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false">Религия&nbsp<b>(87)</b></a>
+    <ul class="dropdown-menu">
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tdrkult">Религия: Другие религии и культы&nbsp<b>(2)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tdrrelig">Религия: Другое&nbsp<b>(5)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tislam">Религия: Ислам&nbsp<b>(18)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tiudaizm">Религия: Иудаизм&nbsp<b>(2)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/trelig">Религия: Религиоведение, история религии, атеизм&nbsp<b>(4)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/thrist">Религия: Христианство&nbsp<b>(56)</b></a></li>
+      
+    </ul>
+  </div>
+    <div class="dropdown list-group-item " style="padding:0px;">
+    <a type="button"
+            style="border:none;font-size:12px;width:100%;text-align:left;"
+            class="dropdown-toggle btn btn-default "
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false">Транспорт&nbsp<b>(13)</b></a>
+    <ul class="dropdown-menu">
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/transvod">Транспорт: водный&nbsp<b>(5)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/transavia">Транспорт: воздушный&nbsp<b>(4)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/transnaz">Транспорт: наземный&nbsp<b>(4)</b></a></li>
+      
+    </ul>
+  </div>
+    <div class="dropdown list-group-item " style="padding:0px;">
+    <a type="button"
+            style="border:none;font-size:12px;width:100%;text-align:left;"
+            class="dropdown-toggle btn btn-default "
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false">Фантастика&nbsp<b>(4)</b></a>
+    <ul class="dropdown-menu">
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tramka">Б-ка приключений и научной фантастики (рамка, серия)&nbsp<b>(1)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tofant">Фантастика отечественная&nbsp<b>(3)</b></a></li>
+      
+    </ul>
+  </div>
+    <div class="dropdown list-group-item " style="padding:0px;">
+    <a type="button"
+            style="border:none;font-size:12px;width:100%;text-align:left;"
+            class="dropdown-toggle btn btn-default "
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false">Философия&nbsp<b>(39)</b></a>
+    <ul class="dropdown-menu">
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tphant">Философия: Античная&nbsp<b>(1)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tphil">Философия: Другое&nbsp<b>(20)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tphznov">Философия: Новейшее время. Западная. (XX-XXI вв.)&nbsp<b>(1)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tphonov">Философия: Новейшее время. Отечественная. (XX-XXI вв.)&nbsp<b>(12)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tphbur">Философия: Новое время (XVIII-XIX вв.)&nbsp<b>(4)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tphsred">Философия: Средневековье, Возрождение&nbsp<b>(1)</b></a></li>
+      
+    </ul>
+  </div>
+    <div class="dropdown list-group-item " style="padding:0px;">
+    <a type="button"
+            style="border:none;font-size:12px;width:100%;text-align:left;"
+            class="dropdown-toggle btn btn-default "
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false">Языкознание&nbsp<b>(14)</b></a>
+    <ul class="dropdown-menu">
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tlingdr">Языкознание. Другие языки.&nbsp<b>(5)</b></a></li>
+            <li><a tabindex="-1" style="word-break: break-all;" href="/catalogue/tlingrus">Языкознание. Русский язык.&nbsp<b>(9)</b></a></li>
+      
+    </ul>
+  </div>
+  
+</div>
+
+<!-- <div class="list-group"> -->
+  
+<!--    -->
+<!--   <a href=""  class="list-group-item  with-position">Азия <b>(17)</b></a> -->
+<!--    -->
+<!--   <a href=""  class="list-group-item  with-position">Антиквариат <b>(481)</b></a> -->
+<!--    -->
+<!--   <a href=""  class="list-group-item  with-position">Африка <b>(1)</b></a> -->
+<!--    -->
+<!--   <a href=""  class="list-group-item  with-position">Биографии <b>(88)</b></a> -->
+<!--    -->
+<!--   <a href=""  class="list-group-item  with-position">Детская литература <b>(123)</b></a> -->
+<!--    -->
+<!--   <a href=""  class="list-group-item  with-position">Другие <b>(1213)</b></a> -->
+<!--    -->
+<!--   <a href=""  class="list-group-item  with-position">Искусство <b>(167)</b></a> -->
+<!--    -->
+<!--   <a href=""  class="list-group-item  with-position">История <b>(94)</b></a> -->
+<!--    -->
+<!--   <a href=""  class="list-group-item  with-position">Краеведение <b>(16)</b></a> -->
+<!--    -->
+<!--   <a href=""  class="list-group-item  with-position">Медицина <b>(63)</b></a> -->
+<!--    -->
+<!--   <a href=""  class="list-group-item  with-position">Пособия <b>(26)</b></a> -->
+<!--    -->
+<!--   <a href=""  class="list-group-item  with-position">Поэзия <b>(110)</b></a> -->
+<!--    -->
+<!--   <a href=""  class="list-group-item  with-position">Приключения <b>(3)</b></a> -->
+<!--    -->
+<!--   <a href=""  class="list-group-item  with-position">Проза <b>(97)</b></a> -->
+<!--    -->
+<!--   <a href=""  class="list-group-item  with-position">Религия <b>(87)</b></a> -->
+<!--    -->
+<!--   <a href=""  class="list-group-item  with-position">Транспорт <b>(13)</b></a> -->
+<!--    -->
+<!--   <a href=""  class="list-group-item  with-position">Фантастика <b>(4)</b></a> -->
+<!--    -->
+<!--   <a href=""  class="list-group-item  with-position">Философия <b>(39)</b></a> -->
+<!--    -->
+<!--   <a href=""  class="list-group-item  with-position">Языкознание <b>(14)</b></a> -->
+<!--    -->
+<!-- </div> -->
+
+
+        </div>
+      </div>
+    </div>
+    
+  </body>
+<script src="/js/URI.min.js"></script>
+<script src="/js/jquery.paginate.min.js"></script>
+<script src="/js/ractive-legacy.min.js"></script>
+<script src="/src/main.js"></script>
+
+<link href="/css/footer-distributed-with-address-and-phones.css" rel="stylesheet">
+   <footer class="footer-distributed">
+      <div class="footer-left">
+         <h3 class="fussy_font">ЕВРОБУК<span></span></h3>
+         <p class="footer-links">
+            <a  class="fussy_font" href="/">ГЛАВНАЯ</a>
+            ·
+            <a  class="fussy_font" href="/catalogue/">КАТАЛОГ</a>
+            ·
+            <a  class="fussy_font" href="/about/">КОНТАКТЫ</a>
+            ·
+            <a  class="fussy_font" href="/search/">РАСШИРЕННЫЙ ПОИСК</a>
+            ·
+            <a  class="fussy_font" href="/cart/">КОРЗИНА</a>
+         </p>
+         <p class="footer-company-name">ООО Евробук &copy; 2015</p>
+      </div>
+      <div class="footer-center">
+         <div>
+            <i class="fa fa-map-marker"></i>
+            <p><span> Большая Татарская д. 25-27</span> Москва, Россия</p>
+         </div>
+         <div>
+            <i class="fa fa-phone"></i>
+            <p>(123) 456-7890</p>
+         </div>
+         <div>
+            <i class="fa fa-envelope"></i>
+            <p><a href="mailto:account@everybook.ru">account@everybook.ru</a></p>
+         </div>
+      </div>
+      <div class="footer-right">
+         <p class="footer-company-about">
+           <span>О нас</span>
+           В нашем каталоге книг содержится более 1735 наименований
+         </p>
+         <div class="footer-icons">
+            <a href="#"><i class="fa fa-facebook"></i></a>
+            <a href="#"><i class="fa fa-twitter"></i></a>
+            <a href="#"><i class="fa fa-vk"></i></a>
+         </div>
+      </div>
+   </footer>
+   
+
+
+
+
+
+
+
+
+</html>
