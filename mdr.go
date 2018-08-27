@@ -43,6 +43,15 @@ func (d *DataRegion) iter(k int) [][]*DTree {
 
 type Record []*DTree
 
+func (r *Record) Display(delim string) string {
+	result := ""
+	for _, v := range *r {
+		result += "@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@\n"
+		result += v.display(delim)
+	}
+	return result
+}
+
 func (r *Record) ConvertToBase() []*DTree {
 	return *r
 	// result := []*DTree{}
