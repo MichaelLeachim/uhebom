@@ -54,11 +54,6 @@ func (r *Record) Display(delim string) string {
 
 func (r *Record) ConvertToBase() []*DTree {
 	return *r
-	// result := []*DTree{}
-	// for _, v := range *r {
-	// 	result = append(result, v)
-	// }
-	// return result
 }
 
 func (r *Record) id() string {

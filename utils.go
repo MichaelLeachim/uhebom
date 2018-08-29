@@ -9,8 +9,15 @@ package depta
 
 import (
 	"github.com/satori/go.uuid"
+	"hash/fnv"
 	"log"
 )
+
+func hash(s string) uint32 {
+	h := fnv.New32a()
+	h.Write([]byte(s))
+	return h.Sum32()
+}
 
 func make_id() []byte {
 	id := uuid.NewV1()

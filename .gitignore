@@ -1,1 +1,5 @@
 depta.test
+main.test
+test/result/*
+test/resultnw/*
+

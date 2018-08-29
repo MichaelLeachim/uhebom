@@ -497,6 +497,5 @@ func (p *PartialTreeAligner) align(l1, l2 []*DTree) (bool, bool, map[string]*DTr
 			}
 		}
 	}
-
 	return modified, len(unaligned_elements) > 0, aligned
 }

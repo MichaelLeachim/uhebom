@@ -28,6 +28,8 @@ func TestNodeCopyingInvestigation(t *testing.T) {
 	assert.Equal(t, len(second_record), 13)
 
 	assert.NotEqual(t, first_record[12].Data, second_record[12].Data)
+	assert.Equal(t, first_record[12].Data, "Энциклопедия на французском языке. Содержит 70500 статей, 5150 иллюстраций, 245 карт.")
+	assert.Equal(t, second_record[12].Data, "Каталог выставки. На титульном листе автограф Аникушина М.К.")
 }
 
 func TestRecordMiningShouldWorkAsExpected(t *testing.T) {
@@ -51,7 +53,6 @@ func TestRecordMiningShouldWorkAsExpected(t *testing.T) {
 	assert.Equal(t, getTextOfBlock(records[3]), "Курс лекций для студентов-заочников по специальности Экономическая география")
 	assert.Equal(t, getTextOfBlock(records[4]), "Том 1 - Рассказы 1906-1910 Том 2 - Рассказы 1910-1914 Том 3 - Алые паруса, Феерия; Блистающий мир, роман; Рассказы 1914-1916 Том 4 - Золотая цепь, роман; Рассказы 1916 - 1923 Том 5 - Бегущая по волнам, роман; Рассказы 1923 - 1929 Том 6 - Дорога никуда, роман; Автобиографическая повесть;Рассказы 1929 - 1930. Все тома в картонных футлярах.")
 	assert.Equal(t, getTextOfBlock(records[12]), "Изложены практически все вопросы, связанные с устройством, эксплуатацией и совершенствованием яхт, содержатся разделы по основам парусного спорта, подготовке яхтенных рулевых, крейсерским плаваниям, навигации, метеорологии, уходу за яхтой и безопасности плавания. В приложении даны основы аэрогидродинамики и такелажных работ. Большой иллюстративный материал: рисунки, схемы, фотографии.")
-
 }
 
 func TestExamlesParsing(t *testing.T) {
@@ -69,5 +70,4 @@ func TestExamlesParsing(t *testing.T) {
 		}
 		ioutil.WriteFile(v, ExtractToHTML(file), 0777)
 	}
-
 }
