@@ -8,6 +8,7 @@
 package depta
 
 import (
+	"bytes"
 	"github.com/satori/go.uuid"
 	"hash/fnv"
 	"log"
@@ -16,6 +17,14 @@ import (
 type utils_ struct{}
 
 var utils = utils_{}
+
+func (u *utils_) join_strings(data ...string) string {
+	var template bytes.Buffer
+	for _, v := range data {
+		template.WriteString(v)
+	}
+	return template.String()
+}
 
 func (u *utils_) hash(s string) uint32 {
 	h := fnv.New32a()

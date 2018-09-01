@@ -20,8 +20,8 @@ type html_tools_ struct{}
 var html_tools = html_tools_{}
 
 // wrap HTML into DTree
-func (h *html_tools_) ReadHtml(n *html.Node) *DTree {
-	dtree := DTree{}
+func (h *html_tools_) readHtml(n *html.Node) *DataTree {
+	dtree := DataTree{}
 	dtree.Attrs = make(map[string]string, 0)
 	dtree.identity()
 	if n.Type == html.ElementNode {
@@ -52,7 +52,7 @@ func (h *html_tools_) ReadHtml(n *html.Node) *DTree {
 	return &dtree
 }
 
-func (h *html_tools_) ParseHTML(data io.Reader) *html.Node {
+func (h *html_tools_) parseHTML(data io.Reader) *html.Node {
 	doc, err := html.Parse(data)
 	if err != nil {
 		log.Fatal(err)
@@ -60,7 +60,7 @@ func (h *html_tools_) ParseHTML(data io.Reader) *html.Node {
 	return doc
 }
 
-func (h *html_tools_) as_html_tables(data []*DataRegion, show_id bool) []byte {
+func (h *html_tools_) asHTMLTables(data []*DataRegion, show_id bool) []byte {
 	var template bytes.Buffer
 	template.WriteString("<style>table {border-collapse: collapse;}table, th, td {border: 1px solid black;}</style>")
 
@@ -68,7 +68,7 @@ func (h *html_tools_) as_html_tables(data []*DataRegion, show_id bool) []byte {
 		template.WriteString("<h1>Table number: ")
 		template.WriteString(strconv.Itoa(i))
 		template.WriteString("</h1>")
-		template.WriteString(item.as_html_table(show_id))
+		template.WriteString(item.asHTMLTable(show_id))
 	}
 	return template.Bytes()
 }

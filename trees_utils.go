@@ -7,18 +7,15 @@
 
 package depta
 
-import (
-	"bytes"
-	"encoding/gob"
-)
+import ()
 
 type trees_utils_ struct{}
 
 var trees_utils = trees_utils_{}
 
-func (h *trees_utils_) Pairwise(data []*DTree, K, start int) [][][]*DTree {
+func (h *trees_utils_) Pairwise(data []*DataTree, K, start int) [][][]*DataTree {
 	// TODO: check index sizes
-	result := [][][]*DTree{}
+	result := [][][]*DataTree{}
 	// _ = "breakpoint"
 	for k := 1; k < K+1; k++ {
 		for i := 0; i < K; i++ {
@@ -29,7 +26,7 @@ func (h *trees_utils_) Pairwise(data []*DTree, K, start int) [][][]*DTree {
 				slice_a := data[slice_ax:slice_ay]
 				slice_b := data[slice_bx:slice_by]
 				if len(slice_a) >= k && len(slice_b) >= k {
-					result = append(result, [][]*DTree{slice_a, slice_b})
+					result = append(result, [][]*DataTree{slice_a, slice_b})
 				}
 			}
 		}
@@ -45,7 +42,7 @@ func (t *trees_utils_) Create2dMatrix(x, y int) [][]float64 {
 	return result
 }
 
-func (u *trees_utils_) TreeMatch(t1, t2 *DTree) float64 {
+func (u *trees_utils_) TreeMatch(t1, t2 *DataTree) float64 {
 	t1_root, t1_exist := t1.get_root()
 	t2_root, t2_exist := t2.get_root()
 	if !t1_exist || !t2_exist {

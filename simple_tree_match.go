@@ -13,7 +13,7 @@ func newSimpleTreeMatch() *SimpleTreeMatch {
 	return &SimpleTreeMatch{}
 }
 
-func (s *SimpleTreeMatch) Match(l1, l2 []*DTree) float64 {
+func (s *SimpleTreeMatch) Match(l1, l2 []*DataTree) float64 {
 	// match(self, l1, l2)
 	// match two trees list.
 	rows := len(l1) + 1
@@ -27,7 +27,7 @@ func (s *SimpleTreeMatch) Match(l1, l2 []*DTree) float64 {
 	return m[rows-1][cols-1]
 }
 
-func (s *SimpleTreeMatch) NormalizedMatchScore(l1, l2 []*DTree) float64 {
+func (s *SimpleTreeMatch) NormalizedMatchScore(l1, l2 []*DataTree) float64 {
 	l1size := 1
 	l2size := 1
 	for _, v := range l1 {

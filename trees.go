@@ -6,99 +6,35 @@
 // @@@@@@ At 2018-27-08 22:34<mklimoff222@gmail.com> @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 package depta
 
-import (
-	"fmt"
-	log "github.com/sirupsen/logrus"
-)
+import ()
 
-type DTree struct {
+type DataTree struct {
 	Tag      string
 	Data     string
-	Children []*DTree
+	Children []*DataTree
 	_id      string
 	Index    int
-	Parent   *DTree
+	Parent   *DataTree
 	Attrs    map[string]string
 }
 
-func (d *DTree) display(delim string) string {
+func (d *DataTree) display(delim string) string {
 	result := ""
-	result += fmt.Sprintf("%v%v:%v\n", delim, d.Tag, d.Data)
+	result += utils.join_strings(delim, d.Tag, ":", d.Data, "\n")
 	for _, v := range d.Children {
 		result += v.display(delim + delim)
 	}
 	return result
 }
-func (d *DTree) display_text() string {
-	result := d.Data
-	for _, v := range d.Children {
-		result += " " + v.display_text()
-	}
-	return result
-}
 
-func (d *DTree) identity() string {
+func (d *DataTree) identity() string {
 	if d._id == "" {
-		d._id = make_id_string()
+		d._id = utils.make_id_string()
 	}
 	return d._id
 }
 
-func (d *DTree) flatten() []string {
-	// flattens children tree
-	result := make([]string, 0)
-	result = append(result, d.Data)
-	for _, v := range d.Children {
-		result = append(result, v.flatten()...)
-	}
-	return result
-}
-
-func (d *DTree) getprevious() (*DTree, bool) {
-	if d.Index-1 < 0 {
-		return &DTree{}, false
-	}
-	return d.Parent.Children[d.Index-1], true
-}
-
-func (d *DTree) getnext() (*DTree, bool) {
-	last_child_index := len(d.Parent.Children) - 1
-	if d.Index >= last_child_index {
-		return &DTree{}, false
-	} else {
-		return d.Parent.Children[d.Index+1], true
-	}
-}
-
-func (d *DTree) child_insert(child *DTree, index int) {
-	// if index > len(d.Children)-1
-	//    index = len(d.Children)-1
-	// if index < 0:
-	//    index = 0
-	log.Println("OOOOOOOOOOOOOOOOOO")
-	if index > len(d.Children) {
-		index = len(d.Children) - 1
-	}
-	if index < 0 {
-		index = 0
-	}
-
-	child.Parent = d
-	child.Index = index
-
-	// We are inserting item at a point (with shifting)
-	result := make([]*DTree, 0)
-	for k, v := range d.Children {
-		if k == index {
-			result = append(result, child)
-		}
-		result = append(result, v)
-	}
-	d.Children = result
-	child.identity()
-}
-
-func (d *DTree) child_append(child *DTree) {
+func (d *DataTree) child_append(child *DataTree) {
 	last_index := len(d.Children) - 1
 	if last_index < 0 {
 		last_index = 0
@@ -108,26 +44,15 @@ func (d *DTree) child_append(child *DTree) {
 	d.Children = append(d.Children, child)
 }
 
-func (d *DTree) parent_add(parent *DTree) {
-	parent.child_append(d)
+func (d *DataTree) element_repr() string {
+	return utils.join_strings("<", d.Tag, "#", d.Attrs["id"], ".", d.Attrs["class"], ">")
 }
 
-func (d *DTree) element_repr() string {
-	return fmt.Sprintf("<%s #%s .%s>", d.Tag, d.Attrs["class"], d.Attrs["id"])
-}
-
-func (d *DTree) nilp() bool {
-	if d.Tag == "" && d.Data == "" && len(d.Children) == 0 {
-		return true
-	}
-	return false
-}
-
-func (d *DTree) hash() string {
+func (d *DataTree) hash() string {
 	return string(d.identity())
 }
 
-func (d *DTree) tree_size() int {
+func (d *DataTree) tree_size() int {
 	// tree_size(root)
 	if len(d.Children) == 0 {
 		return 1
@@ -140,7 +65,7 @@ func (d *DTree) tree_size() int {
 	return size + 1
 }
 
-func (d *DTree) tree_depth() int {
+func (d *DataTree) tree_depth() int {
 	// tree_depth(root)
 	if len(d.Children) == 0 {
 		return 1
@@ -155,9 +80,10 @@ func (d *DTree) tree_depth() int {
 	}
 	return size + 1
 }
-func (d *DTree) get_root() (string, bool) {
+
+func (d *DataTree) get_root() (string, bool) {
 	// determines node uniqueness for alignment
-	// for the future, add another tree metrics
+	// for the future, add another tree metric
 	if d.Tag == "" {
 		return "", false
 	}
@@ -165,15 +91,15 @@ func (d *DTree) get_root() (string, bool) {
 	return d.Tag, true
 }
 
-func (d *DTree) get_child(i int) (*DTree, bool) {
+func (d *DataTree) get_child(i int) (*DataTree, bool) {
 	// _get_child(e,i)
 	if i < len(d.Children) {
 		return d.Children[i], true
 	}
-	return &DTree{}, false
+	return &DataTree{}, false
 }
 
-func (d *DTree) get_children_count() int {
+func (d *DataTree) get_children_count() int {
 	// _get_child(e,i)
 	return len(d.Children)
 }

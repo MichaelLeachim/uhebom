@@ -8,29 +8,37 @@
 package depta
 
 type MiningDataRegion struct {
-	root                  *DTree
+	root                  *DataTree
 	max_generalized_nodes int
 	threshold             float64
 	stm                   SimpleTreeMatch
 }
 
-func (m *MiningDataRegion) compare_generalized_nodes(parent *DTree, max_generalized_nodes int) map[string]*GeneralizedNodeCompareContainer {
-	scores := make(map[string]*GeneralizedNodeCompareContainer, 0)
+func newMiningDataRegion(root *DataTree, max_generalized_nodes int, threshold float64) *MiningDataRegion {
+	m := MiningDataRegion{}
+	m.root = root
+	m.max_generalized_nodes = max_generalized_nodes
+	m.threshold = threshold
+	return &m
+}
+
+func (m *MiningDataRegion) compareGeneralizedNodes(parent *DataTree, max_generalized_nodes int) map[string]GeneralizedNodeCompareContainer {
+	scores := make(map[string]GeneralizedNodeCompareContainer, 0)
 	for _, v := range trees_utils.Pairwise(parent.Children, max_generalized_nodes, 0) {
 		gn1 := GeneralizedNode{element: v[0][0], length: len(v[0])}
 		gn2 := GeneralizedNode{element: v[1][0], length: len(v[1])}
 		appender := GeneralizedNodeCompareContainer{left: gn1, right: gn2}
-		_, ok := scores[appender.hash()]
+		_, ok := scores[appender.identity()]
 		if ok == false {
 			score := m.stm.NormalizedMatchScore(v[0], v[1])
 			appender.score = score
-			scores[appender.hash()] = &appender
+			scores[appender.identity()] = appender
 		}
 	}
 	return scores
 }
 
-func (m *MiningDataRegion) calculate_score(region DataRegion) float64 {
+func (m *MiningDataRegion) calculateScore(region DataRegion) float64 {
 	if region.Covered == 0 {
 		return 0
 	}
@@ -38,17 +46,14 @@ func (m *MiningDataRegion) calculate_score(region DataRegion) float64 {
 	return region.Score / float64(count)
 }
 
-func (m *MiningDataRegion) identify_regions(start int,
-	root *DTree,
-	max_generalized_nodes int,
+func (m *MiningDataRegion) identifyRegions(start int,
+	root *DataTree, max_generalized_nodes int,
 	threshold float64,
-	scores map[string]*GeneralizedNodeCompareContainer) []*DataRegion {
+	scores map[string]GeneralizedNodeCompareContainer) []*DataRegion {
 
-	cur_region := DataRegion{}
-	max_region := DataRegion{}
-	cur_region.init(root, 0, 0, 0, 0)
-	max_region.init(root, 0, 0, 0, 0)
-	data_regions := make([]*DataRegion, 0)
+	cur_region := newDataRegion(root, 0, 0, 0, 0)
+	max_region := newDataRegion(root, 0, 0, 0, 0)
+	data_regions := []*DataRegion{}
 
 	for k := 1; k < max_generalized_nodes+1; k++ {
 		for i := 0; i < max_generalized_nodes; i++ {
@@ -61,7 +66,7 @@ func (m *MiningDataRegion) identify_regions(start int,
 					g1 := GeneralizedNode{element: child_j, length: k}
 					g2 := GeneralizedNode{element: child_jk, length: k}
 					container := GeneralizedNodeCompareContainer{left: g1, right: g2}
-					score_item, _ := scores[container.hash()]
+					score_item, _ := scores[container.identity()]
 					score = score_item.score
 				} else {
 					score = 0
@@ -81,7 +86,7 @@ func (m *MiningDataRegion) identify_regions(start int,
 					break
 				}
 			}
-			if m.calculate_score(cur_region) > m.calculate_score(max_region) {
+			if m.calculateScore(cur_region) > m.calculateScore(max_region) {
 				max_region.K = cur_region.K
 				max_region.Start = cur_region.Start
 				max_region.Covered = cur_region.Covered
@@ -92,18 +97,18 @@ func (m *MiningDataRegion) identify_regions(start int,
 	if max_region.Covered > 0 {
 		data_regions = append(data_regions, &max_region)
 		if max_region.Start+max_region.Covered < len(max_region.Parent.Children) {
-			data_regions = append(data_regions, m.identify_regions(max_region.Start+max_region.Covered, root, max_generalized_nodes, threshold, scores)...)
+			data_regions = append(data_regions, m.identifyRegions(max_region.Start+max_region.Covered, root, max_generalized_nodes, threshold, scores)...)
 		}
 	}
 	return data_regions
 }
 
-func (m *MiningDataRegion) find_regions(root *DTree) []*DataRegion {
-	data_regions := make([]*DataRegion, 0)
+func (m *MiningDataRegion) findRegions(root *DataTree) []*DataRegion {
+	data_regions := []*DataRegion{}
 	if root.tree_depth() >= 2 {
-		scores := m.compare_generalized_nodes(root, m.max_generalized_nodes)
-		data_regions = append(data_regions, m.identify_regions(0, root, m.max_generalized_nodes, m.threshold, scores)...)
-		covered := make(map[string]*DTree, 0)
+		scores := m.compareGeneralizedNodes(root, m.max_generalized_nodes)
+		data_regions = append(data_regions, m.identifyRegions(0, root, m.max_generalized_nodes, m.threshold, scores)...)
+		covered := map[string]*DataTree{}
 
 		for _, data_region := range data_regions {
 			// all items that are covered by this data_region
@@ -119,7 +124,7 @@ func (m *MiningDataRegion) find_regions(root *DTree) []*DataRegion {
 		for _, child := range root.Children {
 			_, ok := covered[child.hash()]
 			if ok == false {
-				data_regions = append(data_regions, m.find_regions(child)...)
+				data_regions = append(data_regions, m.findRegions(child)...)
 			}
 		}
 	}

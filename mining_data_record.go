@@ -5,14 +5,15 @@
 // @ All rights reserved.                                                               @
 // @@@@@@ At 2018-01-09 23:14<mklimoff222@gmail.com> @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
+// mining the data record from a region.
+// basic assumption:
+// the subtree of data records also similar. so if not any adjacent pair of them are
+// similar (less than threshold), data region itself is a data record,
+// otherwise children are individual data record.
+
 package depta
 
 type MiningDataRecord struct {
-	// mining the data record from a region.
-	// basic assumption:
-	// the subtree of data records also similar. so if not any adjacent pair of them are
-	// similar (less than threshold), data region itself is a data record,
-	// otherwise children are individual data record.
 	threshold float64
 	stm       *SimpleTreeMatch
 }
@@ -24,17 +25,17 @@ func newMiningDataRecord(threshold float64) *MiningDataRecord {
 	return &m
 }
 
-func (m *MiningDataRecord) slice_region(region *DataRegion) []*Record {
+func (m *MiningDataRecord) sliceRegion(region *DataRegion) []*DataRecord {
 	// slice every generalized node of region to a data records
-	records := make([]*Record, 0)
+	records := make([]*DataRecord, 0)
 	for _, v := range region.iter(region.K) {
-		vv := Record(v)
+		vv := DataRecord(v)
 		records = append(records, &vv)
 	}
 	return records
 }
 
-func (m *MiningDataRecord) almost_similar(similarities map[string]float64, threshold float64) bool {
+func (m *MiningDataRecord) almostSimilar(similarities map[string]float64, threshold float64) bool {
 	sims := make([]int, 0)
 
 	for _, v := range similarities {
@@ -45,10 +46,10 @@ func (m *MiningDataRecord) almost_similar(similarities map[string]float64, thres
 	return (float64(len(sims)) / float64(len(similarities))) > ALMOST_SIMILAR
 }
 
-func (m *MiningDataRecord) find_records(region *DataRegion) []*Record {
+func (m *MiningDataRecord) findRecords(region *DataRegion) []*DataRecord {
 	// PROBABLY BUGS, TEST
 	if region.K == 1 {
-		records := make([]*Record, 0)
+		records := make([]*DataRecord, 0)
 		//if all the individual nodes of children nodes of Generalized node are similar
 		for i := region.Start; i < region.Start+region.Covered; i++ {
 			child, ok := region.Parent.get_child(i)
@@ -64,14 +65,14 @@ func (m *MiningDataRecord) find_records(region *DataRegion) []*Record {
 		// each child of generalized node is a data record
 		for _, gn := range region.iter(1) {
 			for _, c := range gn {
-				cc := Record{c}
+				cc := DataRecord{c}
 				records = append(records, &cc)
 			}
 		}
 		return records
 	} else {
 		// if almost all the individual nodes in Generalized Node are similar
-		children := make([]*DTree, 0)
+		children := make([]*DataTree, 0)
 		for i := 0; i < region.Covered; i++ {
 			child, ok := region.Parent.get_child(region.Start + i)
 			if ok {
@@ -91,7 +92,7 @@ func (m *MiningDataRecord) find_records(region *DataRegion) []*Record {
 				most_common_size = k
 			}
 		}
-		var most_typical_child *DTree
+		var most_typical_child *DataTree
 		for _, v := range children {
 			if v.tree_size() == most_common_size {
 				most_typical_child = v
@@ -99,13 +100,13 @@ func (m *MiningDataRecord) find_records(region *DataRegion) []*Record {
 		}
 		similarities := make(map[string]float64, 0)
 		for _, child := range children {
-			similarities[child.hash()] = m.stm.NormalizedMatchScore([]*DTree{most_typical_child}, []*DTree{child})
+			similarities[child.hash()] = m.stm.NormalizedMatchScore([]*DataTree{most_typical_child}, []*DataTree{child})
 		}
-		result := make([]*Record, 0)
+		result := make([]*DataRecord, 0)
 		if m.almost_similar(similarities, m.threshold) {
 			for _, child := range children {
 				if float64(similarities[child.hash()]) >= m.threshold {
-					rr := Record([]*DTree{child})
+					rr := DataRecord([]*DataTree{child})
 					result = append(result, &rr)
 				}
 			}

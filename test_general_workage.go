@@ -8,45 +8,23 @@
 package depta
 
 import (
-	"bytes"
-	log "github.com/sirupsen/logrus"
 	"github.com/stretchr/testify/assert"
 	"io/ioutil"
-	"os"
 	"strings"
 	"testing"
 )
 
-func TestNodeCopyingInvestigation(t *testing.T) {
-	data, _ := ioutil.ReadFile("test/1.html")
-	dtree := ReadHtml(ParseHTML(bytes.NewReader(data)))
-	regions := DeptaExtract(dtree, 5, 0.75)
-
-	first_record := regions[2].Items[0].convert_to_base()
-	second_record := regions[2].Items[1].convert_to_base()
-	assert.Equal(t, len(first_record), 13)
-	assert.Equal(t, len(second_record), 13)
-
-	assert.NotEqual(t, first_record[12].Data, second_record[12].Data)
-	assert.Equal(t, first_record[12].Data, "Энциклопедия на французском языке. Содержит 70500 статей, 5150 иллюстраций, 245 карт.")
-	assert.Equal(t, second_record[12].Data, "Каталог выставки. На титульном листе автограф Аникушина М.К.")
-}
-
 func TestRecordMiningShouldWorkAsExpected(t *testing.T) {
 	data, _ := ioutil.ReadFile("test/1.html")
-	dtree := ReadHtml(ParseHTML(bytes.NewReader(data)))
-	region_finder := MiningDataRegion{}
-	region_finder.init(dtree, 5, 0.75)
-	regions := region_finder.find_regions(dtree)
+	regions := simplified_api.FindDataRegions(data)
 	assert.Equal(t, len(regions), 28)
-	record_finder := MiningDataRecord{}
-	record_finder.init(0.75)
-	records := record_finder.find_records(regions[2])
-
+	records := simplified_api.FindDataRecords(regions[2])
 	assert.Equal(t, len(records), 13)
-	getTextOfBlock := func(item *Record) string {
+
+	getTextOfBlock := func(item *DataRecord) string {
 		return strings.TrimSpace(item.convert_to_base()[0].Children[0].Children[2].Children[3].Data)
 	}
+
 	assert.Equal(t, getTextOfBlock(records[0]), "Энциклопедия на французском языке. Содержит 70500 статей, 5150 иллюстраций, 245 карт.")
 	assert.Equal(t, getTextOfBlock(records[1]), "Каталог выставки. На титульном листе автограф Аникушина М.К.")
 	assert.Equal(t, getTextOfBlock(records[2]), "Ожерелье королевы (фр. Le Collier de la Reine) — вторая часть тетралогии Александра Дюма-отца, объединённой похождениями известного мага, предсказателя судеб и вечного человека Джузеппе Бальзамо (Калиостро). Издание полностью на французском языке.")
