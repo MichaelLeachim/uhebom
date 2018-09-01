@@ -43,7 +43,7 @@ func TestImplementPathRecords(t *testing.T) {
 	record_finder.init(0.75)
 	records := record_finder.find_records(regions[2])
 
-	assert.Equal(t, wunsch_processing.ConvertToTabularForm(records[0].ConvertToBase()),
+	assert.Equal(t, wunsch_processing.ConvertToTabularForm(records[0].convert_to_base()),
 		[]TabularForm{TabularForm{Path: "div/div/div/", Content: ""},
 			TabularForm{Path: "div/div/div/a/div", Content: ""},
 			TabularForm{Path: "div/div/div/div/h4/i", Content: ""},

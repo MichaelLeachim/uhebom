@@ -118,7 +118,7 @@ func (w *wunsch_processing_) ExtractionWork(root *DTree, k int, threshold float6
 		records := record_finder.find_records(region)
 		tabular_records := [][]TabularForm{}
 		for _, record := range records {
-			tabular_records = append(tabular_records, wunsch_processing.ConvertToTabularForm(record.ConvertToBase()))
+			tabular_records = append(tabular_records, wunsch_processing.ConvertToTabularForm(record.convert_to_base()))
 		}
 		result = append(result, wunsch_processing.TabularAlignmentBasedOnWunschAlgorithm(tabular_records))
 	}
