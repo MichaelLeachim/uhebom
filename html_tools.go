@@ -19,27 +19,6 @@ type html_tools_ struct{}
 
 var html_tools = html_tools_{}
 
-func (h *html_tools_) Pairwise(data []*DTree, K, start int) [][][]*DTree {
-	// TODO: check index sizes
-	result := [][][]*DTree{}
-	// _ = "breakpoint"
-	for k := 1; k < K+1; k++ {
-		for i := 0; i < K; i++ {
-			for j := start + i; j < len(data); j += k {
-				slice_ax, slice_ay := utils.bind_slice(j, j+k, len(data))
-				slice_bx, slice_by := utils.bind_slice(j+k, j+2*k, len(data))
-
-				slice_a := data[slice_ax:slice_ay]
-				slice_b := data[slice_bx:slice_by]
-				if len(slice_a) >= k && len(slice_b) >= k {
-					result = append(result, [][]*DTree{slice_a, slice_b})
-				}
-			}
-		}
-	}
-	return result
-}
-
 // wrap HTML into DTree
 func (h *html_tools_) ReadHtml(n *html.Node) *DTree {
 	dtree := DTree{}

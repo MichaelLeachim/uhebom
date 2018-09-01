@@ -121,11 +121,13 @@ type MiningDataRecord struct {
 	// similar (less than threshold), data region itself is a data record,
 	// otherwise children are individual data record.
 	threshold float64
+	stm       *SimpleTreeMatch
 }
 
 func newMiningDataRecord(threshold float64) *MiningDataRecord {
 	m := MiningDataRecord{}
 	m.threshold = threshold
+	m.stm = newSimpleTreeMatch()
 	return &m
 }
 
@@ -158,7 +160,7 @@ func (m *MiningDataRecord) find_records(region *DataRegion) []*Record {
 		for i := region.Start; i < region.Start+region.Covered; i++ {
 			child, ok := region.Parent.get_child(i)
 			if ok {
-				for _, children := range pairwise(child.Children, 1, 0) {
+				for _, children := range trees_utils.Pairwise(child.Children, 1, 0) {
 					sim := m.stm.normalized_match_score(children[0], children[1])
 					if float64(sim) < m.threshold {
 						return m.slice_region(region)

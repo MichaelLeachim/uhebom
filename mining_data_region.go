@@ -11,19 +11,20 @@ type MiningDataRegion struct {
 	root                  *DTree
 	max_generalized_nodes int
 	threshold             float64
+	stm                   SimpleTreeMatch
 }
 
-func (m *MiningDataRegion) compare_generalized_nodes(parent *DTree, max_generalized_nodes int) map[string]GeneralizedNodeCompareContainer {
-	scores := make(map[string]GeneralizedNodeCompareContainer, 0)
-	for _, v := range html_tools.Pairwise(parent.Children, max_generalized_nodes, 0) {
+func (m *MiningDataRegion) compare_generalized_nodes(parent *DTree, max_generalized_nodes int) map[string]*GeneralizedNodeCompareContainer {
+	scores := make(map[string]*GeneralizedNodeCompareContainer, 0)
+	for _, v := range trees_utils.Pairwise(parent.Children, max_generalized_nodes, 0) {
 		gn1 := GeneralizedNode{element: v[0][0], length: len(v[0])}
 		gn2 := GeneralizedNode{element: v[1][0], length: len(v[1])}
 		appender := GeneralizedNodeCompareContainer{left: gn1, right: gn2}
 		_, ok := scores[appender.hash()]
 		if ok == false {
-			score := m.stm.normalized_match_score(v[0], v[1])
+			score := m.stm.NormalizedMatchScore(v[0], v[1])
 			appender.score = score
-			scores[appender.hash()] = appender
+			scores[appender.hash()] = &appender
 		}
 	}
 	return scores
@@ -41,7 +42,7 @@ func (m *MiningDataRegion) identify_regions(start int,
 	root *DTree,
 	max_generalized_nodes int,
 	threshold float64,
-	scores map[string]GeneralizedNodeCompareContainer) []*DataRegion {
+	scores map[string]*GeneralizedNodeCompareContainer) []*DataRegion {
 
 	cur_region := DataRegion{}
 	max_region := DataRegion{}
@@ -116,7 +117,6 @@ func (m *MiningDataRegion) find_regions(root *DTree) []*DataRegion {
 
 		// for each child that is not covered by that data region
 		for _, child := range root.Children {
-
 			_, ok := covered[child.hash()]
 			if ok == false {
 				data_regions = append(data_regions, m.find_regions(child)...)
