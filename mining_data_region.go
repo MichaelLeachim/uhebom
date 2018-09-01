@@ -5,11 +5,17 @@
 // @ All rights reserved.                                                               @
 // @@@@@@ At 2018-01-09 22:58<mklimoff222@gmail.com> @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
-package main
+package depta
+
+type MiningDataRegion struct {
+	root                  *DTree
+	max_generalized_nodes int
+	threshold             float64
+}
 
 func (m *MiningDataRegion) compare_generalized_nodes(parent *DTree, max_generalized_nodes int) map[string]GeneralizedNodeCompareContainer {
 	scores := make(map[string]GeneralizedNodeCompareContainer, 0)
-	for _, v := range pairwise(parent.Children, max_generalized_nodes, 0) {
+	for _, v := range html_tools.Pairwise(parent.Children, max_generalized_nodes, 0) {
 		gn1 := GeneralizedNode{element: v[0][0], length: len(v[0])}
 		gn2 := GeneralizedNode{element: v[1][0], length: len(v[1])}
 		appender := GeneralizedNodeCompareContainer{left: gn1, right: gn2}
