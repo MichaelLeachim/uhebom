@@ -13,28 +13,28 @@ func newSimpleTreeMatch() *SimpleTreeMatch {
 	return &SimpleTreeMatch{}
 }
 
-func (s *SimpleTreeMatch) Match(l1, l2 []*DataTree) float64 {
+func (s *SimpleTreeMatch) match(l1, l2 []*DataTree) float64 {
 	// match(self, l1, l2)
 	// match two trees list.
 	rows := len(l1) + 1
 	cols := len(l2) + 1
-	m := trees_utils.Create2dMatrix(rows, cols)
+	m := trees_utils.create2dMatrix(rows, cols)
 	for i := 1; i < rows; i++ {
 		for j := 1; j < cols; j++ {
-			m[i][j] = utils.maxf([]float64{m[i][j], m[i-1][j-1] + trees_utils.TreeMatch(l1[i-1], l2[j-1])})
+			m[i][j] = utils.maxf([]float64{m[i][j], m[i-1][j-1] + trees_utils.treeMatch(l1[i-1], l2[j-1])})
 		}
 	}
 	return m[rows-1][cols-1]
 }
 
-func (s *SimpleTreeMatch) NormalizedMatchScore(l1, l2 []*DataTree) float64 {
+func (s *SimpleTreeMatch) normalizedMatchScore(l1, l2 []*DataTree) float64 {
 	l1size := 1
 	l2size := 1
 	for _, v := range l1 {
-		l1size += v.tree_size()
+		l1size += v.treeSize()
 	}
 	for _, v := range l2 {
-		l2size += v.tree_size()
+		l2size += v.treeSize()
 	}
-	return float64(s.Match(l1, l2)) / (float64(l1size+l2size) / float64(2))
+	return float64(s.match(l1, l2)) / (float64(l1size+l2size) / float64(2))
 }

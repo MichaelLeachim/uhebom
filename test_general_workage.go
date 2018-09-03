@@ -16,13 +16,13 @@ import (
 
 func TestRecordMiningShouldWorkAsExpected(t *testing.T) {
 	data, _ := ioutil.ReadFile("test/1.html")
-	regions := simplified_api.FindDataRegions(data)
+	regions := simplified_api.findDataRegions(data)
 	assert.Equal(t, len(regions), 28)
-	records := simplified_api.FindDataRecords(regions[2])
+	records := simplified_api.findDataRecords(regions[2])
 	assert.Equal(t, len(records), 13)
 
 	getTextOfBlock := func(item *DataRecord) string {
-		return strings.TrimSpace(item.convert_to_base()[0].Children[0].Children[2].Children[3].Data)
+		return strings.TrimSpace(item.convertToBase()[0].Children[0].Children[2].Children[3].Data)
 	}
 
 	assert.Equal(t, getTextOfBlock(records[0]), "Энциклопедия на французском языке. Содержит 70500 статей, 5150 иллюстраций, 245 карт.")

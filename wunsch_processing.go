@@ -49,7 +49,7 @@ func (w *wunsch_processing_) convertToTabularFormRecursive(path string, result *
 	}
 }
 
-func (w *wunsch_processing_) ConvertToTabularForm(data []*DataTree) []*TabularForm {
+func (w *wunsch_processing_) convertToTabularForm(data []*DataTree) []*TabularForm {
 	return_data := []*TabularForm{}
 	for _, tree := range data {
 		result := []*TabularForm{}
@@ -58,7 +58,7 @@ func (w *wunsch_processing_) ConvertToTabularForm(data []*DataTree) []*TabularFo
 	}
 	return return_data
 }
-func (w *wunsch_processing_) dereference_list_of_forms(data []*TabularForm) []TabularForm {
+func (w *wunsch_processing_) dereferenceListOfForms(data []*TabularForm) []TabularForm {
 	est := []TabularForm{}
 	for _, v := range data {
 		est = append(est, *v)
@@ -66,7 +66,7 @@ func (w *wunsch_processing_) dereference_list_of_forms(data []*TabularForm) []Ta
 	return est
 }
 
-func (w *wunsch_processing_) TabularAlignmentBasedOnWunschAlgorithm(data [][]*TabularForm) [][]*TabularForm {
+func (w *wunsch_processing_) tabularAlignmentBasedOnWunschAlgorithm(data [][]*TabularForm) [][]*TabularForm {
 	converted := [][]wunsch.Item{}
 	cached := map[int]*TabularForm{}
 	for tab_index, tabular_form := range data {
@@ -98,7 +98,7 @@ func (w *wunsch_processing_) TabularAlignmentBasedOnWunschAlgorithm(data [][]*Ta
 	return result
 }
 
-func (w *wunsch_processing_) AsHTMLTables(data [][][]*TabularForm) []byte {
+func (w *wunsch_processing_) asHTMLTables(data [][][]*TabularForm) []byte {
 	var template bytes.Buffer
 	template.WriteString("<style>table {border-collapse: collapse;}table, th, td {border: 1px solid black;}</style>")
 
@@ -106,32 +106,32 @@ func (w *wunsch_processing_) AsHTMLTables(data [][][]*TabularForm) []byte {
 		template.WriteString("<h1>Table number: ")
 		template.WriteString(strconv.Itoa(i))
 		template.WriteString(" </h1>")
-		template.WriteString(w.AsHTMLTable(item))
+		template.WriteString(w.asHTMLTable(item))
 	}
 	return template.Bytes()
 }
 
-func (w *wunsch_processing_) ExtractionWork(root *DataTree, k int, threshold float64) [][][]*TabularForm {
-	regions := newMiningDataRegion(root, k, threshold).find_regions(root)
+func (w *wunsch_processing_) extractionWork(root *DataTree, k int, threshold float64) [][][]*TabularForm {
+	regions := newMiningDataRegion(root, k, threshold).findRegions(root)
 	record_finder := newMiningDataRecord(threshold)
 
 	result := [][][]*TabularForm{}
 	for _, region := range regions {
-		records := record_finder.find_records(region)
+		records := record_finder.findRecords(region)
 		tabular_records := [][]*TabularForm{}
 		for _, record := range records {
-			tabular_records = append(tabular_records, wunsch_processing.ConvertToTabularForm(record.convert_to_base()))
+			tabular_records = append(tabular_records, wunsch_processing.convertToTabularForm(record.convertToBase()))
 		}
-		result = append(result, wunsch_processing.TabularAlignmentBasedOnWunschAlgorithm(tabular_records))
+		result = append(result, wunsch_processing.tabularAlignmentBasedOnWunschAlgorithm(tabular_records))
 	}
 	return result
 }
 
-func (w *wunsch_processing_) Extract(data []byte) [][][]*TabularForm {
-	return w.ExtractionWork(html_tools.ReadHtml(html_tools.ParseHTML(bytes.NewReader(data))), 5, 0.75)
+func (w *wunsch_processing_) extract(data []byte) [][][]*TabularForm {
+	return w.extractionWork(html_tools.readHTML(html_tools.parseHTML(bytes.NewReader(data))), 5, 0.75)
 }
 
-func (w *wunsch_processing_) AsHTMLTable(data [][]*TabularForm) string {
+func (w *wunsch_processing_) asHTMLTable(data [][]*TabularForm) string {
 	// convert region to a HTML table
 	var buffer bytes.Buffer
 	buffer.WriteString("<table>")

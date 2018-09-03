@@ -20,7 +20,7 @@ type html_tools_ struct{}
 var html_tools = html_tools_{}
 
 // wrap HTML into DTree
-func (h *html_tools_) readHtml(n *html.Node) *DataTree {
+func (h *html_tools_) readHTML(n *html.Node) *DataTree {
 	dtree := DataTree{}
 	dtree.Attrs = make(map[string]string, 0)
 	dtree.identity()
@@ -47,7 +47,7 @@ func (h *html_tools_) readHtml(n *html.Node) *DataTree {
 				continue
 			}
 		}
-		dtree.child_append(h.ReadHtml(c))
+		dtree.childAppend(h.readHTML(c))
 	}
 	return &dtree
 }

@@ -13,7 +13,7 @@ import (
 
 type DataRecord []*DataTree
 
-func (r *DataRecord) Display(delim string) string {
+func (r *DataRecord) display(delim string) string {
 
 	result := ""
 	for _, v := range *r {
@@ -39,7 +39,7 @@ func (r *DataRecord) identity() string {
 func (r *DataRecord) size() int {
 	size := 0
 	for _, v := range *r {
-		size += v.tree_size()
+		size += v.treeSize()
 	}
 	return size
 }
@@ -47,7 +47,7 @@ func (r *DataRecord) str() string {
 	var buffer bytes.Buffer
 	buffer.WriteString("DataRecord: ")
 	for _, v := range *r {
-		buffer.WriteString(v.element_repr())
+		buffer.WriteString(v.elementRepresentation())
 		buffer.WriteString(",")
 	}
 	return buffer.String()

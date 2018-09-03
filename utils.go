@@ -11,19 +11,22 @@ import (
 	"bytes"
 	"github.com/satori/go.uuid"
 	"hash/fnv"
-	"log"
 )
 
 type utils_ struct{}
 
 var utils = utils_{}
 
-func (u *utils_) join_strings(data ...string) string {
+func (u *utils_) joinString(data ...string) string {
 	var template bytes.Buffer
 	for _, v := range data {
 		template.WriteString(v)
 	}
 	return template.String()
+}
+
+func (u *utils_) tabularFormToBase(datum [][][]*TabularForm) {
+
 }
 
 func (u *utils_) hash(s string) uint32 {
@@ -32,12 +35,11 @@ func (u *utils_) hash(s string) uint32 {
 	return h.Sum32()
 }
 
-func (u *utils_) make_id() []byte {
+func (u *utils_) makeId() []byte {
 	id := uuid.NewV1()
-	log.Println(string(id.String()))
 	return id.Bytes()
 }
-func (u *utils_) make_id_string() string {
+func (u *utils_) makeIdString() string {
 	return uuid.NewV1().String()
 }
 
@@ -51,7 +53,7 @@ func (u *utils_) maxf(data []float64) float64 {
 	return max
 }
 
-func (u *utils_) bind_slice(start, end, size int) (int, int) {
+func (u *utils_) bindSlice(start, end, size int) (int, int) {
 	// will return appropriate starts and ends based on list size
 	if start < 0 || end < 0 {
 		panic("Should not use negative slices. It is not Python")

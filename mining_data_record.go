@@ -52,12 +52,12 @@ func (m *MiningDataRecord) findRecords(region *DataRegion) []*DataRecord {
 		records := make([]*DataRecord, 0)
 		//if all the individual nodes of children nodes of Generalized node are similar
 		for i := region.Start; i < region.Start+region.Covered; i++ {
-			child, ok := region.Parent.get_child(i)
+			child, ok := region.Parent.getChild(i)
 			if ok {
-				for _, children := range trees_utils.Pairwise(child.Children, 1, 0) {
-					sim := m.stm.NormalizedMatchScore(children[0], children[1])
+				for _, children := range trees_utils.pairwise(child.Children, 1, 0) {
+					sim := m.stm.normalizedMatchScore(children[0], children[1])
 					if float64(sim) < m.threshold {
-						return m.slice_region(region)
+						return m.sliceRegion(region)
 					}
 				}
 			}
@@ -74,7 +74,7 @@ func (m *MiningDataRecord) findRecords(region *DataRegion) []*DataRecord {
 		// if almost all the individual nodes in Generalized Node are similar
 		children := make([]*DataTree, 0)
 		for i := 0; i < region.Covered; i++ {
-			child, ok := region.Parent.get_child(region.Start + i)
+			child, ok := region.Parent.getChild(region.Start + i)
 			if ok {
 				children = append(children, child)
 			}
@@ -82,7 +82,7 @@ func (m *MiningDataRecord) findRecords(region *DataRegion) []*DataRecord {
 		}
 		sizes := make(map[int]int, 0)
 		for _, child := range children {
-			sizes[child.tree_size()] += 1
+			sizes[child.treeSize()] += 1
 		}
 		most_common_size_counter := 0
 		most_common_size := 0
@@ -94,16 +94,16 @@ func (m *MiningDataRecord) findRecords(region *DataRegion) []*DataRecord {
 		}
 		var most_typical_child *DataTree
 		for _, v := range children {
-			if v.tree_size() == most_common_size {
+			if v.treeSize() == most_common_size {
 				most_typical_child = v
 			}
 		}
 		similarities := make(map[string]float64, 0)
 		for _, child := range children {
-			similarities[child.hash()] = m.stm.NormalizedMatchScore([]*DataTree{most_typical_child}, []*DataTree{child})
+			similarities[child.hash()] = m.stm.normalizedMatchScore([]*DataTree{most_typical_child}, []*DataTree{child})
 		}
 		result := make([]*DataRecord, 0)
-		if m.almost_similar(similarities, m.threshold) {
+		if m.almostSimilar(similarities, m.threshold) {
 			for _, child := range children {
 				if float64(similarities[child.hash()]) >= m.threshold {
 					rr := DataRecord([]*DataTree{child})
@@ -112,7 +112,7 @@ func (m *MiningDataRecord) findRecords(region *DataRegion) []*DataRecord {
 			}
 			return result
 		} else {
-			return m.slice_region(region)
+			return m.sliceRegion(region)
 		}
 	}
 }

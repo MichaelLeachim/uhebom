@@ -19,15 +19,35 @@ type simplified_api_ struct{}
 
 var simplified_api = simplified_api_{}
 
-func (s *simplified_api_) ReadAndParseBytes(data []byte) *DataTree {
-	return html_tools.ReadHtml(html_tools.ParseHTML(bytes.NewReader(data)))
+func (s *simplified_api_) readAndParseBytes(data []byte) *DataTree {
+	return html_tools.readHTML(html_tools.parseHTML(bytes.NewReader(data)))
 }
 
-func (s *simplified_api_) FindDataRecords(region *DataRegion) []*DataRecord {
-	return newMiningDataRecord(THRESHOLD).find_records(region)
+func (s *simplified_api_) findDataRecords(region *DataRegion) []*DataRecord {
+	return newMiningDataRecord(THRESHOLD).findRecords(region)
 }
 
-func (s *simplified_api_) FindDataRegions(data []byte) []*DataRegion {
-	root := s.ReadAndParseBytes(data)
-	return newMiningDataRegion(root, MAX_GENERALIZED_NODES, THRESHOLD).find_regions(root)
+func (s *simplified_api_) findDataRegions(data []byte) []*DataRegion {
+	root := s.readAndParseBytes(data)
+	return newMiningDataRegion(root, MAX_GENERALIZED_NODES, THRESHOLD).findRegions(root)
+}
+
+func Extract(data []byte) [][][]string {
+	result := [][][]string{}
+	for _, table := range wunsch_processing.extract(data) {
+		result_table := [][]string{}
+		for _, row := range table {
+			result_row := []string{}
+			for _, col := range row {
+				if col.IsGap {
+					result_row = append(result_row, "")
+				} else {
+					result_row = append(result_row, col.Content)
+				}
+			}
+			result_table = append(result_table, result_row)
+		}
+		result = append(result, result_table)
+	}
+	return result
 }
