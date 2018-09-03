@@ -4,7 +4,7 @@ It has the following name:
 
 * **U**nsupervised
 * **H**TML 
-* **E**extraction
+* **E**xtraction
 * **B**ased
 * **0**n
 * **M**ining Data Records
@@ -45,7 +45,7 @@ import (
 )
 
 func main(){
-  datum_extracted := extractor.Extract([]byte("<html><div>Hello world</div></html>))
+  datum_extracted := extractor.Extract([]byte("<html><div>Hello world</div></html>"))
   log.Println(datum_extracted)
 }
 
