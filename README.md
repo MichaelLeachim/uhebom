@@ -17,7 +17,7 @@ It consists of two parts:
 * [Needleman–Wunsch](https://en.wikipedia.org/wiki/Needleman%E2%80%93Wunsch_algorithm) algorithm for alignment of data records
 
 The MDR algorithm based on [Mining Data Records](https://dl.acm.org/citation.cfm?id=956826) paper. 
-The implementation of it is heavily inspired by [this](https://github.com/scrapinghub/pydepta) library. 
+The implementation is heavily inspired by [this](https://github.com/scrapinghub/pydepta) library. 
 
 The alignment part uses this [Needleman–Wunsch](https://github.com/MichaelLeachim/wunsch) implementation. 
 
@@ -31,7 +31,7 @@ environment.
 
 ## Installation 
 ```golang
-go get -u github.com/MichaelLeachim/uhebon
+go get -u github.com/MichaelLeachim/uhebom
 ```
 
 
@@ -40,7 +40,7 @@ go get -u github.com/MichaelLeachim/uhebon
 ```golang
 
 import (
-  extractor "github.com/MichaelLeachim/<WRITE_HERE>"
+  extractor "github.com/MichaelLeachim/uhebom"
   log
 )
 
@@ -54,4 +54,5 @@ func main(){
 ## Demo 
 
 You should check out the result of the system
+TODO: implement the HTML example of this library usage.
 
