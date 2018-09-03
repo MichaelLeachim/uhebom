@@ -36,11 +36,12 @@ func (u *utils_) hash(s string) uint32 {
 }
 
 func (u *utils_) makeId() []byte {
-	id := uuid.NewV1()
+	id, _ := uuid.NewV1()
 	return id.Bytes()
 }
 func (u *utils_) makeIdString() string {
-	return uuid.NewV1().String()
+	uuid, _ := uuid.NewV1()
+	return uuid.String()
 }
 
 func (u *utils_) maxf(data []float64) float64 {
