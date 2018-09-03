@@ -5,7 +5,7 @@
 // @ All rights reserved.                                                               @
 // @@@@@@ At 2018-27-08 22:35<mklimoff222@gmail.com> @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
-package depta
+package uhebom
 
 import ()
 

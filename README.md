@@ -1,41 +1,57 @@
-Okay, this is a data record extraction software.
+This is a library for unsupervised data extraction from HTML pages
 
-This system consists of two parts:
+It has the following name:
+
+* **U**nsupervised
+* **H**TML 
+* **E**extraction
+* **B**ased
+* **0**n
+* **M**ining Data Records
+
+In short, **Uhebom**. 
+
+It consists of two parts:
 
 * MDR algorithm for extracting data regions from a HTML web page
 * [Needleman–Wunsch](https://en.wikipedia.org/wiki/Needleman%E2%80%93Wunsch_algorithm) algorithm for alignment of data records
 
 The MDR algorithm based on [Mining Data Records](https://dl.acm.org/citation.cfm?id=956826) paper. 
-The implementation is heavily inspired by [this](https://github.com/scrapinghub/pydepta) library. 
+The implementation of it is heavily inspired by [this](https://github.com/scrapinghub/pydepta) library. 
 
 The alignment part uses this [Needleman–Wunsch](https://github.com/MichaelLeachim/wunsch) implementation. 
 
-
 ## The purpose of this work
 
-The purpose is to provide a fast and portable way to extract 
+Is to provide a fast and portable way to extract 
 repeating data in tabular form from HTML pages. 
+This implementation also aims to work in JS 
+environment. 
 
-It should be fast and portable across 
 
 ## Installation 
 ```golang
-go get -u github.com/MichaelLeachim/<WRITE_HERE>
+go get -u github.com/MichaelLeachim/uhebon
 ```
+
 
 ## Usage 
+
 ```golang
+
+import (
+  extractor "github.com/MichaelLeachim/<WRITE_HERE>"
+  log
+)
+
+func main(){
+  datum_extracted := extractor.Extract([]byte("<html><div>Hello world</div></html>))
+  log.Println(datum_extracted)
+}
 
 ```
 
+## Demo 
 
+You should check out the result of the system
 
-
-
-
-
-
-
-
-
-# This package 

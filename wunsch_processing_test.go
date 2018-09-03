@@ -5,7 +5,7 @@
 // @ All rights reserved.                                                               @
 // @@@@@@ At 2018-29-08 19:39<mklimoff222@gmail.com> @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
-package depta
+package uhebom
 
 import (
 	"github.com/stretchr/testify/assert"

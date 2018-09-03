@@ -11,7 +11,7 @@
 // similar (less than threshold), data region itself is a data record,
 // otherwise children are individual data record.
 
-package depta
+package uhebom
 
 type MiningDataRecord struct {
 	threshold float64

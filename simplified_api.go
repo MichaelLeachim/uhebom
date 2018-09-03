@@ -4,7 +4,7 @@
 // @ You must not remove this notice, or any other, from this software.                 @
 // @ All rights reserved.                                                               @
 // @@@@@@ At 2018-02-09 00:13<mklimoff222@gmail.com> @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-package depta
+package uhebom
 
 import (
 	"bytes"

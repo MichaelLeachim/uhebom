@@ -4,7 +4,7 @@
 // @ You must not remove this notice, or any other, from this software.                 @
 // @ All rights reserved.                                                               @
 // @@@@@@ At 2018-27-08 22:34<mklimoff222@gmail.com> @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-package depta
+package uhebom
 
 type GeneralizedNode struct {
 	element *DataTree

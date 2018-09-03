@@ -5,7 +5,7 @@
 // @ All rights reserved.                                                               @
 // @@@@@@ At 2018-01-09 23:04<mklimoff222@gmail.com> @@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
-package depta
+package uhebom
 
 type SimpleTreeMatch struct{}
 
